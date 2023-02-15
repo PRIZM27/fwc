@@ -1,0 +1,23 @@
+.sections { 
+  &__locations{ 
+    
+  }
+}
+
+.details { 
+  h4 { 
+    text-align: center;
+  }
+
+  p { 
+    color: white;
+    font-size: 1.4rem;
+  }
+}
+
+
+.leaflet-container { 
+  width: 900px;
+  height: 900px;
+}
+
