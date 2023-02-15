@@ -59,7 +59,8 @@ const content = links.map((link, index) => {
      {...a11yProps(link.index)}
      disableRipple
      sx={{
-       fontSize: '1.4rem',
+       fontSize: '1.6rem',
+       fontWeight:'600'
      }} />
  )
  });
@@ -97,7 +98,7 @@ const TopNav = () => {
       <Box sx={{width: '50%', color: '#EB5E28'}}>
         <Tabs 
           value={value} 
-          textColor='primary'
+          textColor='secondary'
           indicatorColor='none'
           onChange={handleChange} 
           aria-label="navigation links group"
