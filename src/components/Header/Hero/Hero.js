@@ -82,14 +82,14 @@ const Hero = (props) => {
             rowGap: '3rem',
             alignItems: mobile ? 'center' : '',
           
-            justifyContent: mobile ? 'start' : 'start',
+            justifyContent: mobile ? 'start' : 'space-between',
             marginTop: mobile ? 0 : '5rem',
           }}
         >
           <Stack
             // direction={mobile ? 'column' : 'row'}
             sx={{
-              width: mobile ? '70%' : '50%',
+              width: mobile ? '70%' : '70%',
               alignItems: 'start',
             }}
           >
@@ -98,9 +98,9 @@ const Hero = (props) => {
               sx={{
                 width: mobile ? 'auto' : '100%',
                 lineHeight: 1.2,
-                fontSize: '13rem',
+                fontSize: mobile ? '8rem' : '12rem',
                 fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
-                color: 'salmon',
+                color: '#FA8072',
                 fontWeight: mobile ? 300 : 500,
                 textAlign: 'left',
                 // paddingLeft: '20%',
@@ -134,7 +134,7 @@ const Hero = (props) => {
             
             }}
           >
-            <Stack direction='column' alignItems={'flex-end'}>
+            <Stack direction='column' alignItems={'flex-start'}>
               <Typography
                 variant="body1"
                 sx={{

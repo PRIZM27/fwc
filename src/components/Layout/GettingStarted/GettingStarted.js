@@ -54,7 +54,8 @@ const GettingStarted = () => {
         <Typography
           textAlign={'center'}
           variant="h2"
-          fontSize={smallScreen ? '4rem' : '4rem'}
+          fontSize={smallScreen ? '4rem' : '6rem'}
+          color='secondary'
           // width={'100%'}
           // ml={'4rem'}
           // mb={'3rem'}

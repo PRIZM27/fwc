@@ -63,7 +63,7 @@ const Profile = (props) => {
             // textAlign={'center'}
             variant="h2"
             fontWeight={'600'}
-            fontSize={'5.5rem'}
+            fontSize={'7rem'}
             width={'100%'}
             // ml={'4rem'}
             mt={'5rem'}

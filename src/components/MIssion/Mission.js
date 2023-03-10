@@ -7,14 +7,14 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
 
-import SplitContainer from '../Layout Components/SplitBox/SplitBox';
+// import SplitContainer from '../Layout Components/SplitBox/SplitBox';
 
-// image imports
-import womanSitting from '../../assets/images/woman_sitting_peacefully.jpg';
-import womanFacingLeft from '../../assets/images/jessica-felicio-1000.jpg';
+// // image imports
+// import womanSitting from '../../assets/images/woman_sitting_peacefully.jpg';
+// import womanFacingLeft from '../../assets/images/jessica-felicio-1000.jpg';
 
-import bg from '../../assets/images/textured.png';
-import meditate from '../../assets/images/meditate.png';
+// import bg from '../../assets/images/textured.png';
+// import meditate from '../../assets/images/meditate.png';
 
 import missionImage from '../../assets/images/people.webp';
 
@@ -58,7 +58,8 @@ const Mission = () => {
         <Typography
           textAlign={'center'}
           variant="h2"
-          fontSize={smallScreen ? '4.5rem' : '5rem'}
+          fontSize={smallScreen ? '4.5rem' : '6rem'}
+          color='secondary'
           // width={'100%'}
           // ml={'4rem'}
           // mb={'3rem'}
@@ -72,7 +73,7 @@ const Mission = () => {
         </Typography>
         <Typography
           variant="body1"
-          fontSize={smallScreen ? '1.4rem' : '1.6rem'}
+          fontSize={smallScreen ? '1.4rem' : '1.8rem'}
           lineHeight={2}
           width="90%"
           // pl={'4rem'}

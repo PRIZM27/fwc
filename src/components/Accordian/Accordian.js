@@ -23,7 +23,7 @@ return (
         <Typography variant='body1' fontSize='1.6rem' fontWeight='400'>{p.policy}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography variant='body2' fontSize='1.4rem'>
+        <Typography variant='body2' fontSize='1.4rem' lineHeight={1.8}>
          {p.details}
         </Typography>
       </AccordionDetails>

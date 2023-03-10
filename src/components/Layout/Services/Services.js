@@ -82,9 +82,9 @@ const Services = () => {
         // data-aos="zoom-in"
         textAlign={'center'}
         variant="h2"
-        fontSize='4.5rem'
+        fontSize='6rem'
         fontWeight={400}
-        color='#fff'
+        color='secondary'
         width={'100%'}
         // mb={'3rem'}
         sx={{

@@ -32,6 +32,7 @@ const ContentStack = styled(Stack)(({ theme }) => ({
   border: '1px solid black',
   borderRadius: '.5rem',
   backgroundColor: '#FFFCF9',
+  // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
 
   [theme.breakpoints.up('md')]: {
     width: '120rem',
