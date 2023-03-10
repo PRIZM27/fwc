@@ -31,35 +31,36 @@
 
 }
 .card__side { 
+  background-color: #fff;
 
  &--front-1 { 
-  background: linear-gradient(90deg, hsla(340, 80%, 69%, 1) 0%, hsla(15, 93%, 71%, 1) 100%);;
+  // background: linear-gradient(90deg, hsla(340, 80%, 69%, 1) 0%, hsla(15, 93%, 71%, 1) 100%);;
 
  }
 
  &--back-1 { 
-  background: linear-gradient(90deg, hsla(15, 93%, 71%, 1) 0%, hsla(340, 80%, 69%, 1) 100%);
+  // background: linear-gradient(90deg, hsla(15, 93%, 71%, 1) 0%, hsla(340, 80%, 69%, 1) 100%);
 
  }
 
  &--front-2 { 
-  background: linear-gradient(90deg, hsla(145, 44%, 37%, 1) 0%, hsla(190, 53%, 56%, 1) 100%);
+  // background: linear-gradient(90deg, hsla(145, 44%, 37%, 1) 0%, hsla(190, 53%, 56%, 1) 100%);
   // background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%); 
 }
 
 &--back-2{ 
-  background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%); 
+  // background: linear-gradient(90deg, hsla(190, 53%, 56%, 1) 0%, hsla(145, 44%, 37%, 1) 100%); 
 
  }
 
  &--front-3 { 
-  background: linear-gradient(90deg, hsla(232, 73%, 65%, 1) 0%, hsla(279, 33%, 48%, 1) 100%);  // background: linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%);
+  // background: linear-gradient(90deg, hsla(232, 73%, 65%, 1) 0%, hsla(279, 33%, 48%, 1) 100%);  // background: linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%);
   // background: linear-gradient(90deg, hsla(195, 86%, 50%, 1) 0%, hsla(236, 93%, 65%, 1) 100%);
 
  }
 
  &--back-3 { 
-  background: linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%);
+  // background: linear-gradient(90deg, hsla(279, 33%, 48%, 1) 0%, hsla(232, 73%, 65%, 1) 100%);
  }
  
  
@@ -68,7 +69,6 @@
 .card__side--back { 
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
-  color: $color-white;
 
 }
 

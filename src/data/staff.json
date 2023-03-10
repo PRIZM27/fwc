@@ -1,0 +1,14 @@
+
+[ 
+  { 
+    "_id": "Need a strong id",
+    "name": "Rashonda Riley",
+    "slug": "rashonda-riley" // this will be built by slugify
+  }, 
+  { 
+    "_id": "Need a strong id",
+    "name": "Carla Adams",
+    "slug": "carla-adams" // this will be built by slugify
+  }
+
+]

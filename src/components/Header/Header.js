@@ -1,9 +1,9 @@
-import * as React from 'react'
+import * as React from 'react';
 
 // package imports
 
 // MUI imports
-import {Fragment} from 'react';
+import { Fragment } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -12,7 +12,8 @@ import { styled } from '@mui/material/styles';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 
-
+import { useMediaQuery } from '@mui/material';
+import { createTheme } from '@mui/system';
 
 // custom components
 import Nav from './Nav/Nav';
@@ -22,29 +23,27 @@ import themePrimary from '../Themes/theme';
 // styling
 import classes from './_Header.module.scss';
 
+import { Outlet } from 'react-router-dom';
+
+const theme = createTheme({});
 
 const MainHeader = styled(Box)(({ theme }) => ({
- width:'100vw',
- height: '70rem',
-//  clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
+  width: '100vw',
+  //  height: mobile ? '90vh' : '100vh',
 }));
 
+const Header = (props) => {
+  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
-
-const Header = (props) => { 
-  
   return (
-    <MainHeader className={classes.header} component="header">
-      <Nav/>
-      <Hero />
-  </MainHeader>
-
-  )
-}
+    <>
+    <Nav />
+    </>
+  );
+};
 
 export default Header;
-
-
 
 // after laying out heading and pic, pick a place for this to go
 /* 
@@ -58,7 +57,6 @@ export default Header;
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </Typography>
 */
-
 
 // Call to action (goes in it's own box under heading and pic)
 /*  <Stack className={classes.hero__cta} direction="row" spacing={2} mt={'3rem'}>

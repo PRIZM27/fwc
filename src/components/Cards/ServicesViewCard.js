@@ -18,6 +18,8 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
+import Stack from '@mui/material/Stack';
+
 import Typography from '@mui/material/Typography';
 // import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -32,14 +34,21 @@ import 'aos/dist/aos.css';
 // images
 import therapyIllustration from '../../assets/images/therapy-illustration.jpeg';
 
+
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme } from '@mui/system';
+
+
 // style classes (sass)
 import classes from './_ServicesCard.module.scss';
-import { Block } from '@mui/icons-material';
-import { textAlign } from '@mui/system';
+
+const theme = createTheme({});
 
 // stores for style classes
 const classNamesFront = `${classes.card__side} ${classes['card__side--front']}`;
 const classNamesBack = `${classes.card__side} ${classes['card__side--back']}`;
+
+
 
 // custom components
 let servicesArr;
@@ -50,6 +59,8 @@ export default function ServicesViewCard(props) {
 
   const [expanded, setExpanded] = React.useState(false);
   const [rotate, setRotate] = useState(false); 
+  
+  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const services = [...Object.values(props.service)];
 
@@ -94,18 +105,39 @@ export default function ServicesViewCard(props) {
 
   return (
     <>
-      <Box
-        data-aos={'fade-up'}
-        data-aos-duration={800}
-        sx={{ minWidth: '45rem' }}
+      <Stack
+        rowGap='2rem'
+        // data-aos={'fade-up'}
+        // data-aos-duration={800}
+        sx={{ 
+          
+         width: smallScreen ? '90%' : '45rem',
+        
+        }}
         className={classes.card}
         overflow={'hidden'}
       >
-        <Box 
+        <Stack 
+          direction='column'
+          alignItems='center'
+          rowGap={'1.5rem'}
           component={'div'} 
           className={rotate ? `${classNamesFront} ${classes.rotate} ` + classes[`card__side--front-${props.cardOrder + 1}`] : `${classNamesFront} ` + classes[`card__side--front-${props.cardOrder + 1}`]} 
-          ref={cardFrontRef}>
-          <CardHeader
+          ref={cardFrontRef}
+          sx={{
+            
+          }}
+          >
+            <Box sx={{
+              width: '60%',
+              height: '40%',
+              display: 'flex',
+              // direction:'column',
+              justifyContent: 'center'
+              }}>
+            <img src={props.service.image} alt='description' width='100%'/>
+            </Box>
+          {/* <CardHeader
             avatar={
               <Avatar
                 sx={{ bgcolor: 'red' }}
@@ -122,17 +154,22 @@ export default function ServicesViewCard(props) {
             }
             title="Individual Therapy"
             subheader="February 04, 2023"
-          />
-          <Box className={classes.card__title}>
-            <Typography variant={'h4'} color="white" textAlign={'center'}>
+          /> */}
+          <Box className={classes.card__title} mt='3rem'>
+            <Typography variant={'h4'} fontSize='2.2rem' fontWeight={600}  textAlign={'center'}>
               {props.title}
             </Typography>
           </Box>
-          <Box className={classes.card__details}>
+          {/* <Box className={classes.card__details}>
             <List className={classes['card__details-list']}>
               {servicesListContent}
             </List>
-          </Box>
+          </Box> */}
+          <CardContent>
+            <Typography variant='body1' fontSize='1.4rem'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Typography>
+          </CardContent>
           <Button
             onClick={handleRotateClick}
             className={classes.card__button}
@@ -148,16 +185,22 @@ export default function ServicesViewCard(props) {
           >
             Learn More
           </Button>
-        </Box>
-          {/* ////// BACK OF CARD ////// */}
-        <Box
+        </Stack>
+          {/* ////////////⚠️ BACK OF CARD ⚠️  //////////// */}
+        <Stack
           className={rotate ? `${classNamesBack} ${classes.rotateback} ` + classes[`card__side--back-${props.cardOrder + 1}`] : `${classNamesBack} ` + classes[`card__side--back-${props.cardOrder + 1}`]}
-          sx={{ width: '450px' }} 
+          direction='column'
+          alignItems={'center'}
+          rowGap='1.5rem'
+          sx={{ 
+            
+          width: '450px' }} 
           component={'div'}
         >
-          <CardHeader title={'Individual PsychoTherapy'} sx={{
+          <CardHeader title={props.title} sx={{
             '* .MuiTypography-root': { 
-              fontSize: '3rem',
+              fontSize: '2rem',
+              fontWeight: '600',
               textAlign: 'center',
             }
           }} />
@@ -167,18 +210,10 @@ export default function ServicesViewCard(props) {
             <Typography
               className={classes['card__service-full']}
               variant={'body1'}
-            
+              fontSize='1.4rem'
+              lineHeight='1.8'
             >
-              Individual therapy involves one-on-one sessions between a trained
-              therapist and a patient. The goal of individual therapy is to help
-              the patient understand and work through their emotions, thoughts,
-              and behaviors in order to improve their mental health and overall
-              well-being. Individual therapy can be used to treat a wide range
-              of mental health issues, including anxiety, depression,
-              post-traumatic stress disorder (PTSD), and addiction. It can also
-              be used to help individuals cope with life changes and
-              transitions, such as the loss of a loved one, a career change, or
-              a major move.
+              {props.service.description}
             </Typography>
           </CardContent>
           <Button
@@ -186,17 +221,18 @@ export default function ServicesViewCard(props) {
             className={classes.card__button}
             variant="contained"
             size={'large'}
+            mt='2rem'
             sx={{
               width: '15rem',
               height: '5rem',
               display: 'block',
-              margin: '0 auto',
+              
             }}
           >
             Overview
           </Button>
-        </Box>
-      </Box>
+        </Stack>
+      </Stack>
     </>
   );
 }

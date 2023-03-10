@@ -1,16 +1,14 @@
 .hero { 
- 
-  &__content-container { 
-    // border: 1px solid black;
-    display: flex;
-    // border: 1px solid yellow;
-    width: 95%;
-    height: 45rem;
-    // transform: translateY(5rem);
-    margin: 2rem auto;
-    padding-top: 5rem;
-  } 
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
   
+  display: flex;
+  flex-direction: column;
+	justify-content: flex-start;
+	// background-color: #FDC600;
+  background: linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%);
+ 
   &__heading, &__subheading { 
     // animation: .8s fadeUp .8s linear;
   }
@@ -22,21 +20,16 @@
     display: flex;
     justify-content: center;
   }
+
+  &__image { 
+    border-radius: 5px;
+    
+  }
 }
 
-.section--hidden { 
-  opacity: 0;
-  transform: translateY(8rem);
-}
-
-* .reveal { 
-  transition: transform 0.5s, opacity 0.5s;
-}
-
-// animations
+////// animations /////
 
 // fadeUp
-
 @keyframes fadeUp {
   0% { 
     opacity: 0;

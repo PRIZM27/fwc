@@ -21,7 +21,7 @@ import MapSection from '../../Map/Map';
 // custom component
 const SectionPolygonOdd = styled(Grid)(({ theme }) => ({
   width: '100vw',
-  height: '70rem',
+  height: '100vh',
   // marginTop: '-11rem',
   paddingTop: '5rem',
   paddingBottom: '10rem',

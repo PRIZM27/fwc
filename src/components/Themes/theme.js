@@ -23,9 +23,12 @@ const themePrimary = createTheme({
    }
   },
   typography: {   
-    fontFamily: fontPrimary,
+    fontFamily: ' "Montserrat", "Helvetica", "Arial", sans-serif',
     h1: { 
       lineHeight: 1.5,
+    }, 
+    h2: { 
+      fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
     }
   },
 });

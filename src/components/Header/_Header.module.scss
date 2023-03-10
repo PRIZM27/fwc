@@ -1,18 +1,19 @@
 .header {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-	// background: linear-gradient(-45deg, #D67C40, #FA8072, #FFC354, #54E0FF);	
-	background: linear-gradient(-45deg, #211f2f, #433B6F, #261390, #4113ae);	
+  // display: flex;
+  // flex-direction: column;
+	// justify-content: flex-start;
+	// background-color: #FDC600;
 
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  -webkit-animation: gradient 15s ease infinite;
-  height: 100vh;
+	/* Old background styles, applying an animated linear gradient */
+	// background: linear-gradient(-45deg, #D67C40, #FA8072, #FFC354, #54E0FF);	
+	// background: linear-gradient(-45deg, #211f2f, #433B6F, #261390, #4113ae);	
+  // background-size: 400% 400%;
+  // animation: gradient 15s ease infinite;
+  // -webkit-animation: gradient 15s ease infinite;
 }
 
 
-
+/* animation for moving linear gradient background. Save for another project */
 @-webkit-keyframes gradient {
 	0% {
 		background-position: 0% 50%;
