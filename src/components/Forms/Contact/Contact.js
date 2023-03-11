@@ -1,26 +1,20 @@
 
-
 import { useState, useReducer, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 import classes from './_Contact.module.scss';
-
-// images
-import paperPlanes from '../../../assets/images/paper-planes-coral.png';
-import { Typography } from '@mui/material';
-import { textAlign } from '@mui/system';
-
-import contactBgImage from '../../../assets/images/calm-copy-2.jpg';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
 
-// EmailJS,
 import emailjs from '@emailjs/browser';
+
+import contactBgImage from '../../../assets/images/calm-copy-2.jpg';
+import contactBgImageSmall from '../../../assets/images/calm-copy-small.jpg';
 
 const theme = createTheme({});
 
@@ -123,14 +117,8 @@ const Contact = (props) => {
 
   const mobile = useMediaQuery(theme.breakpoints.down('md'))
 
-
-
-
   const invalidValues = Object.values(state);
   console.log(invalidValues);
-
- 
-
 
   // value for error prop
   // const firstNameValid = inputIsValid && inputTouched;
@@ -164,7 +152,7 @@ const Contact = (props) => {
     // });
   };
 
-  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  // const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Grid
@@ -172,7 +160,7 @@ const Contact = (props) => {
       sx={{
         width: '100vw',
         height: '100vh',
-        backgroundImage: `url(${contactBgImage})`,
+        backgroundImage: mobile ? `url(${contactBgImageSmall})` : `url(${contactBgImage})`,
         // backgroundSize: 'contain',
       }}
     >
@@ -182,8 +170,8 @@ const Contact = (props) => {
         justifyContent="start"
         // width="65vw"
         // height="70vh"
-        width="70%"
-        // minWidth='50rem'
+        width="60%"
+        minWidth={mobile ? '90%' : 'auto'}
         // height="70%"
         // className={classes.section__contact}
         // component="section"
@@ -215,14 +203,14 @@ const Contact = (props) => {
           fontWeight={'600'}
           fontSize={'5rem'}
           // width={'100%'}
-          ml={mobile ? 0 :'4rem'}
+          // ml={mobile ? 0 :'4rem'}
           mb={mobile ? 0 :'3rem'}
           // mt={'5rem'}
           color="secondary"
           sx={{
             fontSize: mobile ? '4.5rem' : '6rem',
             textTransform: 'uppercase',
-            
+            overflow: 'hidden',
           }}
         >
           Contact Us
@@ -237,7 +225,7 @@ const Contact = (props) => {
           className={classes.form}
           sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateColumns: mobile ? '1fr' : 'repeat(2, 1fr)',
             rowGap: '2rem',
             // width: '50rem',
             // height: '60rem',
@@ -255,7 +243,7 @@ const Contact = (props) => {
             label="First Name"
             variant="standard"
             helperText="Must have at least 1 character. Letters only."
-            fullWidth={smallScreen ? true : false}
+            fullWidth={mobile ? true : false}
             // error={state.firstNameValid === false && inputTouched}
             error={state.firstNameInvalid && inputTouched}
 

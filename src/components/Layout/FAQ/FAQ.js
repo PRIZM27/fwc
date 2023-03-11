@@ -37,6 +37,9 @@ const ContentStack = styled(Stack)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     width: '120rem',
    },
+   [theme.breakpoints.down('md')]:{ 
+    width: '95%'
+   }
 }));
 
 
@@ -57,7 +60,9 @@ const ContentHeading = styled(Typography)(({ theme }) => ({
   padding: '1rem 0',
   display: 'flex',
   flexDirection: 'column',
-  
+  [theme.breakpoints.down('sm')]: { 
+    fontSize: '4rem',
+  }
 }));
 
 
@@ -269,6 +274,7 @@ const resources = [
 // example: https://www.mcdonalds.com/gb/en-gb/help/faq.html
 const FAQ = (props) => {
   const match = useMediaQuery(theme.breakpoints.up('md'));
+  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid
@@ -276,19 +282,24 @@ const FAQ = (props) => {
       height="100vh"
       component="section"
       sx={{
-        marginTop: match ? '10rem' : 0,
-        backgroundColor: '#FFFCF9',
-
+        // marginTop: match ? '10rem' : 0,
+        margin: match ? '10rem auto 0 auto': 0,
+        // backgroundColor: '#FFFCF9',
+        backgroundColor: '#FFEFDB',
+        borderRadius: '.5rem',
+        paddingTop: '4rem',
+        // overflow: 'hidden'
       }}
     >
-      <Box
+      {/* <Box
         sx={{
           width: '63%',
           height: '30rem',
           margin: '0 auto',
           border: '1px solid black',
           borderRadius: '.5rem',
-          // backgroundColor: '#FFFCF9',
+          backgroundColor: '#FFFCF9',
+          padding: '2rem'
           // backgroundColor: '#FDC600',
           // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
           // backgroundColor: '#FFFCF9',
@@ -297,12 +308,13 @@ const FAQ = (props) => {
       >
         <Typography 
         variant="h1" 
-        fontSize="5rem" 
+        fontSize={match ? '8rem':'5rem' }
         fontWeight={600} 
         textAlign='center'
         color='secondary'
         sx={{
           fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+        // backgroundColor: '#FFFCF9',
 
         }}
         >
@@ -313,7 +325,7 @@ const FAQ = (props) => {
           psycho therapy services. If you have an inquiry not answered here,
           feel free to contact us.
         </Typography>
-      </Box>
+      </Box> */}
 
       <Grid
         container
@@ -323,9 +335,44 @@ const FAQ = (props) => {
         rowGap="2rem"
         columnGap={'1rem'}
         sx={{
-          padding: '3rem',
+          padding: smallScreen ? '0' : '3rem',
         }}
       >
+         <ContentStack
+        sx={{
+          // width: '65%',
+          height: '30rem',
+          // margin: '0 auto',
+          // border: '1px solid black',
+          // borderRadius: '.5rem',
+          // backgroundColor: '#FFFCF9',
+          padding: '2rem'
+          // backgroundColor: '#FDC600',
+          // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
+          // backgroundColor: '#FFFCF9',
+
+        }}
+      >
+        <Typography 
+        variant="h1" 
+        fontSize={match ? '7rem':'5rem' }
+        fontWeight={600} 
+        textAlign='center'
+        color='secondary'
+        sx={{
+          fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+        // backgroundColor: '#FFFCF9',
+
+        }}
+        >
+          Help Center
+        </Typography>
+        <Typography variant="body1" fontSize="1.8rem">
+          The help center page provides answers to common questions regarding
+          psycho therapy services. If you have an inquiry not answered here,
+          feel free to contact us.
+        </Typography>
+      </ContentStack>
         <ContentStack
           // direction="column"
           // alignItems="center"
