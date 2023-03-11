@@ -72,19 +72,18 @@ const featureContent = features.map((f,i) => <FeatureBoxSet feature={f} key={`${
 
 const Features = () => {
   const mobile = useMediaQuery(theme.breakpoints.down('md'));
-
+  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box
+    <Grid
       component="section"
+      container
+      direction='column'
       sx={{
         width: '100vw',
         height: '100vh',
-        padding: '5rem',
+        padding: mobile ? '0' : '5rem',
         backgroundColor: '#FFFCF9',
-
-        display: 'flex',
-        justifyContent: 'center',
       }}
     >
       <Grid
@@ -95,7 +94,7 @@ const Features = () => {
         // alignItems="center"
         component="div"
         sx={{
-          width: mobile ? '90%' : '80%',
+          width: mobile ? '100%' : '80%',
           backgroundColor: '#FFEFDB',
           paddingTop: '2rem',
           paddingBottom: '2rem',
@@ -112,25 +111,29 @@ const Features = () => {
           <Box
             sx={{
               width: '80%',
-              height: '25rem',
+              height: '45rem',
               backgroundColor: '#000',
               borderRadius: '.5rem',
               padding: '2rem',
+              overflow: 'hidden',
+
             }}
           >
             <Stack
               direction="column"
               justifyContent={'flex-start'}
               sx={{
-                width: '65%',
+                width: smallScreen ? '100%' : '65%',
               }}
             >
               <Typography 
               variant="h4" 
               color="white"
               sx={{
+                fontSize: mobile ? '3rem' : '6rem',
                 fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
                 overflow: 'hidden',
+                
               }}
               >
                 The <span className={classes.feature__span}>Fortitude</span>{' '}
@@ -150,7 +153,7 @@ const Features = () => {
           </Stack>
         </Stack>
       </Grid>
-    </Box>
+    </Grid>
   );
 };
 

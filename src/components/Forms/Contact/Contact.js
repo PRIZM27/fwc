@@ -1,3 +1,5 @@
+
+
 import { useState, useReducer, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -136,6 +138,8 @@ const Contact = (props) => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+
     emailjs
       .sendForm(
         'service_64y3lvq',
@@ -414,7 +418,7 @@ const Contact = (props) => {
             type="submit"
             value="Send"
             size={'large'}
-            disabled={true}
+            disabled={false}
             sx={{
               '&.MuiButtonBase-root': {
                 maxWidth: '30%',

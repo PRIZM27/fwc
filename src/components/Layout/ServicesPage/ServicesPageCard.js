@@ -40,7 +40,7 @@ import { createTheme } from '@mui/system';
 
 
 // style classes (sass)
-import classes from './_ServicesCard.module.scss';
+import classes from './ServicesPageCard.module.scss';
 
 const theme = createTheme({});
 
@@ -111,8 +111,8 @@ export default function ServicesViewCard(props) {
         // data-aos-duration={800}
         sx={{ 
           
-         width: smallScreen ? '35rem' : '45rem',
-        height: smallScreen ? '45rem' : '52rem',
+         width: smallScreen ? '90%' : '45rem',
+        
         }}
         className={classes.card}
         overflow={'hidden'}
@@ -129,8 +129,8 @@ export default function ServicesViewCard(props) {
           }}
           >
             <Box sx={{
-              width: smallScreen ?'55%' : '60%',
-              height: smallScreen ? '30%' : '45%',
+              width: '60%',
+              height: '40%',
               display: 'flex',
               // direction:'column',
               justifyContent: 'center'

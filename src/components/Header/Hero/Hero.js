@@ -54,6 +54,7 @@ const Hero = (props) => {
         height='100vh'
         rowGap={'2rem'}
         mt={!smallScreen ? '7rem' : 0}
+        pt={mobile ? '3rem' : 0}
       >
         {/* <Box
           sx={{
@@ -74,7 +75,7 @@ const Hero = (props) => {
           container
           sx={{
             // border: '1px solid black',
-            width: mobile ? '75%' : '90%',
+            width: mobile ? '100%' : '90%',
             // display: mobile ? 'block' : 'auto',
             order: mobile ? 2 : 1,
             // height: '40%'
@@ -103,7 +104,7 @@ const Hero = (props) => {
                 color: '#FA8072',
                 fontWeight: mobile ? 300 : 500,
                 textAlign: 'left',
-                // paddingLeft: '20%',
+                // paddingLeft: '20%'
                 overflow: 'hidden',
                 span: { 
                   display: 'block',
@@ -134,11 +135,11 @@ const Hero = (props) => {
             
             }}
           >
-            <Stack direction='column' alignItems={'flex-start'}>
+            <Stack direction='column' alignItems={mobile ? 'center' : 'flex-start'}>
               <Typography
                 variant="body1"
                 sx={{
-                  width: '70%',
+                  width: mobile ? '70%': '70%',
                   fontSize: '1.8rem',
                   textAlign:mobile ? 'left' : 'auto',
                 }}
@@ -151,6 +152,7 @@ const Hero = (props) => {
                 sx={{
                   marginTop: mobile ? '2rem' : '1rem',
                   textAlign:'center',
+                  minWidth: mobile ? '50%' : 'auto',
                 }}
               >
                 Book Now
