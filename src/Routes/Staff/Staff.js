@@ -86,7 +86,7 @@ const Staff = () => {
           // width: '45rem',
           width: '100vw',
           // height: '100vh',
-          paddingTop: '8rem',
+          paddingTop: '8rem 3rem',
           // margin: '10rem auto 0 auto',
           // backgroundColor: '#FDC600',
          backgroundColor: '#FFFAED',
@@ -101,11 +101,12 @@ const Staff = () => {
           fontWeight='600'
           color='secondary'
           sx={{
+            fontSize: mobile ? '4.5rem' : '6rem',
             fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
             
           }}
         >
-          Meet the team
+          Meet the Team
         </Typography>
         {staff.map((s, i) => (
           <StaffCard key={i} person={s} />

@@ -119,6 +119,8 @@ const Contact = (props) => {
     messageInvalid: null,
   });
 
+  const mobile = useMediaQuery(theme.breakpoints.down('md'))
+
 
 
 
@@ -209,15 +211,17 @@ const Contact = (props) => {
           fontWeight={'600'}
           fontSize={'5rem'}
           // width={'100%'}
-          ml={'4rem'}
-          mb={'3rem'}
+          ml={mobile ? 0 :'4rem'}
+          mb={mobile ? 0 :'3rem'}
           // mt={'5rem'}
-          color="primary"
+          color="secondary"
           sx={{
+            fontSize: mobile ? '4.5rem' : '6rem',
             textTransform: 'uppercase',
+            
           }}
         >
-          Contact
+          Contact Us
         </Typography>
         <Box
           component="form"
