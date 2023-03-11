@@ -86,7 +86,7 @@ const Staff = () => {
           // width: '45rem',
           width: '100vw',
           // height: '100vh',
-          paddingTop: '8rem 3rem',
+          padding: '5rem 3rem 8rem 3rem',
           // margin: '10rem auto 0 auto',
           // backgroundColor: '#FDC600',
          backgroundColor: '#FFFAED',

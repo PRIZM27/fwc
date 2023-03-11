@@ -48,7 +48,7 @@ const StaffCard = (props) => {
     <Box
       // data-aos={'fade-up'}
       // data-aos-duration={800}
-      sx={{ minWidth: '45rem' }}
+      sx={{ minWidth: '35rem', }}
       className={classes.card}
       overflow={'hidden'}
     >
@@ -99,6 +99,7 @@ const StaffCard = (props) => {
               height: '5rem',
               display: 'block',
               margin: '0 auto',
+              overflow: 'hidden',
             }}
           >
             Learn More
@@ -113,6 +114,7 @@ const StaffCard = (props) => {
               height: '5rem',
               display: 'block',
               margin: '0 auto',
+              overflow: 'hidden',
             }}
           >
             {`Book with`} <span className={classes['card__text-break']}>{`${firstName} ${lastName}`}</span>
@@ -129,10 +131,10 @@ const StaffCard = (props) => {
             : `${classNamesBack} ` +
               classes[`card__side--back-${props?.cardOrder + 1}`]
         }
-        sx={{ width: '450px', padding: '1rem' }}
+        sx={{ width: '350px', padding: '2rem' }}
         component={'div'}
       >
-        <Typography variant='body1' fontSize='1.4rem'>
+        <Typography variant='body1' fontSize='1.2rem'>
           {person.bio.split('\n').map(p => (
             <span className={classes['card__text-break']}>{p}</span>
           ))}
