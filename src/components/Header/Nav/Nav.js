@@ -41,7 +41,16 @@ const menuOptions = [
       link: '/staff',
       activeIndex: 0,
       selectedIndex: 1,
+      
     }, 
+    { 
+      name: 'Contact',
+      link: '/contact',
+      activeIndex: 0,
+      selectedIndex: 2,
+      
+    }, 
+    
     // add about our founder page
   ],
   [

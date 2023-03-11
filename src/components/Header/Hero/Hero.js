@@ -89,8 +89,8 @@ const Hero = (props) => {
           <Stack
             // direction={mobile ? 'column' : 'row'}
             sx={{
-              width: mobile ? '70%' : '70%',
-              alignItems: 'start',
+              width: mobile ? '100%' : '70%',
+              alignItems:mobile ? 'center' : 'start',
             }}
           >
             <Typography
@@ -98,7 +98,7 @@ const Hero = (props) => {
               sx={{
                 width: mobile ? 'auto' : '100%',
                 lineHeight: 1.2,
-                fontSize: mobile ? '8rem' : '12rem',
+                fontSize: mobile ? '5rem' : '12rem',
                 fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
                 color: '#FA8072',
                 fontWeight: mobile ? 300 : 500,
