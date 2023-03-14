@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build & sass ./src/assets/sass/main.scss ./public/styles.css ",
+    "build": "react-scripts build ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev:server": "npm run start & nodemon server.js & sass -w src/styles/sass/Main.scss:public/styles.css",
