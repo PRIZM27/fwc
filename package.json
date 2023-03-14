@@ -16,7 +16,7 @@
     "express": "^4.18.2",
     "localforage": "^1.10.0",
     "mapbox-gl": "^2.12.1",
-    "match-sorter": "^6.3.1",
+    "match-sorter": "^6.3.1", 
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
@@ -27,10 +27,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build & sass ./src/assets/sass/main.scss ./public/styles.css ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev:server": "npm run start & nodemon server.js & sass -w src/styles/sass/Main.scss:public/styles.css",
+    "compile:sass": "sass ./src/assets/sass/main.scss ./public/styles.css",
     "backend": "nodemon server.js"
 
   },

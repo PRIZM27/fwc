@@ -28,7 +28,7 @@ const SectionPolygonOdd = styled(Grid)(({ theme }) => ({
   // paddingBottom: '5rem',
   background: '##FFFCF9',
   [theme.breakpoints.down('md')]: { 
-    height: '125vh',
+    height: '140vh',
   }
 }));
 
@@ -121,7 +121,12 @@ const Locations = (props) => {
           </Stack>
         </Grid>
       </Grid>
-      <Grid item container width={mobile ? '100%' : '50%'} height={mobile ? '60rem' : '100%'} justifyContent='center'>
+      <Grid 
+      item 
+      container 
+      width={mobile ? '100vw' : '50%'}
+      height={mobile ? '50rem' : '100%'} 
+       justifyContent='center'>
         <MapSection />
       </Grid>
     </SectionPolygonOdd>

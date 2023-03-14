@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import './App.css';
+// import './App.css';
 
 import {ThemeProvider} from '@mui/material/styles';
 import themePrimary from './components/Themes/theme';
