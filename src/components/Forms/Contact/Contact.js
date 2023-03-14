@@ -166,7 +166,7 @@ const Contact = (props) => {
     >
       <Grid
         container
-        direction="column"
+        direction='column'
         justifyContent="start"
         // width="65vw"
         // height="70vh"
@@ -226,6 +226,7 @@ const Contact = (props) => {
           sx={{
             display: 'grid',
             gridTemplateColumns: mobile ? '1fr' : 'repeat(2, 1fr)',
+            gridAutoRows: mobile ? '12rem' : 'auto', 
             rowGap: '2rem',
             // width: '50rem',
             // height: '60rem',

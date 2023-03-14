@@ -9,7 +9,9 @@
   position: relative;
   height: 52rem;
   border-radius: .8rem;
-  
+  transition: all 0.2s ease;
+
+
 }
 
 
@@ -28,6 +30,8 @@
   -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
+
+ 
 
 }
 .card__side { 

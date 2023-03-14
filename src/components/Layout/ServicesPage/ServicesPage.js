@@ -61,7 +61,7 @@ const servicesContent = services.map((service, i) => {
   );
 });
 
-const Services = () => {
+const ServicesPage = () => {
 
   return (
     <Grid
@@ -71,7 +71,7 @@ const Services = () => {
       component="section"
       width='100vw'
       height='100vh'
-      pt='4rem'
+      pt='8rem'
       pb='4rem'
       justifyContent={'center'}
       // flexWrap={'wrap'}
@@ -82,7 +82,7 @@ const Services = () => {
         // data-aos="zoom-in"
         textAlign={'center'}
         variant="h2"
-        fontSize='6rem'
+        fontSize='7rem'
         fontWeight={400}
         color='secondary'
         width={'100%'}
@@ -98,7 +98,7 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesPage;
 
 {
   /* <Grid item container  justifyContent={'center'} sx={{width: '70vw', margin: '0 auto'}} >

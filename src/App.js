@@ -28,6 +28,7 @@ import Header from './components/Header/Header';
 import Mission from './components/Mission/Mission';
 import Features from './components/Layout/Features/Feature';
 import Services from './components/Layout/Services/Services';
+import ServicesPage from './components/Layout/ServicesPage/ServicesPage';
 import GettingStarted from './components/Layout/GettingStarted/GettingStarted';
 import Contact from './components/Forms/Contact/Contact';
 
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
       },
       { 
         path: 'therapy-services',
-        element: <Services />
+        element: <ServicesPage />
       },
       { 
         path: 'help',

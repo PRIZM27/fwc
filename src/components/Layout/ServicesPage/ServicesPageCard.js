@@ -112,7 +112,7 @@ export default function ServicesViewCard(props) {
         sx={{ 
           
          width: smallScreen ? '90%' : '45rem',
-        
+          
         }}
         className={classes.card}
         overflow={'hidden'}
