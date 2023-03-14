@@ -283,7 +283,7 @@ const FAQ = (props) => {
       component="section"
       sx={{
         // marginTop: match ? '10rem' : 0,
-        margin: match ? '10rem auto 0 auto': 0,
+        margin: match ? '6.7rem auto 0 auto': 0,
         // backgroundColor: '#FFFCF9',
         backgroundColor: '#FFEFDB',
         borderRadius: '.5rem',

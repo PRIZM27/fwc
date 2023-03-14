@@ -87,11 +87,11 @@ const Ribbon = (props) => {
           }}
           image={s.cardImage}
         />
-        <CardContent>
-          <Typography variant="h4" textAlign={'center'}>
+        <CardContent sx={{overflow: 'hidden'}}>
+          <Typography variant="h4" textAlign={'center'} fontSize='1.8rem' fontWeight='600'>
             {s.name}
           </Typography>
-          <Typography variant="body1" textAlign={'center'}>
+          <Typography variant="body1" textAlign={'center'} fontSize='1.4rem'>
             {s.licenses.join(', ')}
           </Typography>
         </CardContent>
@@ -105,12 +105,12 @@ const Ribbon = (props) => {
         width: '100%',
         // height: '250px',
         height: '25%',
-
         paddingLeft: '2rem',
         paddingRight: '2rem',
         zIndex: 10,
         position: 'fixed',
         top: '72rem',
+        overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',
         columnGap: '3rem',

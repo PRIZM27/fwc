@@ -112,7 +112,7 @@ export default function ServicesViewCard(props) {
         sx={{ 
           
          width: smallScreen ? '35rem' : '45rem',
-        height: smallScreen ? '45rem' : '52rem',
+        height: smallScreen ? '60rem' : '52rem',
         }}
         className={classes.card}
         overflow={'hidden'}
@@ -194,7 +194,7 @@ export default function ServicesViewCard(props) {
           rowGap='1.5rem'
           sx={{ 
             
-          width: '450px' }} 
+          width: '100%' }} 
           component={'div'}
         >
           <CardHeader title={props.title} sx={{

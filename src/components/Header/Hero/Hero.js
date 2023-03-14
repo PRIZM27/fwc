@@ -95,6 +95,7 @@ const Hero = (props) => {
             }}
           >
             <Typography
+              data-aos={'fade-up'}
               variant="h1"
               sx={{
                 width: mobile ? 'auto' : '100%',

@@ -33,8 +33,8 @@ const Profile = (props) => {
           item 
           container
           width="50%" 
-          data-aos="fade-up" 
-          data-aos-delay="500"
+          // data-aos="fade-up" 
+          // data-aos-delay="500"
           sx={{
             display: 'grid',
             justifyContent: 'center',
@@ -42,6 +42,8 @@ const Profile = (props) => {
           }}
           >
           <img
+          data-aos="fade-up" 
+          data-aos-delay="500"
             src={person.image}
             alt={person.altText}
             width="110%"

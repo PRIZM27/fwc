@@ -67,12 +67,12 @@ const menuOptions = [
     activeIndex: 1,
     selectedIndex: 1,
   },
-  {
-    name: 'Policies',
-    link: '/policies',
-    activeIndex: 1,
-    selectedIndex: 2,
-  },
+  // {
+  //   name: 'Policies',
+  //   link: '/policies',
+  //   activeIndex: 1,
+  //   selectedIndex: 2,
+  // },
 ], 
 
 ];
@@ -87,7 +87,7 @@ const Nav = styled(Box)(({ theme }) => ({
   padding: '1rem',
   // backgroundColor: '#A34DFF',
   // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
-  backgroundColor: '#FFFCF9',
+  backgroundColor: '#FFFAED',
 
   // background: 'linear-gradient(90deg, hsla(0, 0%, 55%, 1) 0%, hsla(265, 97%, 60%, 1) 100%)',
   position: 'fixed',
@@ -238,7 +238,6 @@ const TopNav = (props) => {
         }}
         sx={{
           cursor: 'pointer',
-
           color: '#000',
           fontWeight:'600',
           fontSize: '1.6rem',

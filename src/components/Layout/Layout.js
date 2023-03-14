@@ -79,6 +79,7 @@ const Layout = () => {
       <Mission />
       <Features />
       <Services />
+      <Locations />
       <GettingStarted /> 
       {/* <Locations />}
       {showSection ==='contact' && <Contact />}

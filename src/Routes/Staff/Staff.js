@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -78,6 +78,8 @@ const Staff = () => {
     setPerson(index);
   };
 
+
+
   if (mobile) {
     return (
       <Box
@@ -86,7 +88,7 @@ const Staff = () => {
           // width: '45rem',
           width: '100vw',
           // height: '100vh',
-          padding: '5rem 3rem 8rem 3rem',
+          padding: '7rem 3rem 8rem 3rem',
           // margin: '10rem auto 0 auto',
           // backgroundColor: '#FDC600',
          backgroundColor: '#FFFAED',

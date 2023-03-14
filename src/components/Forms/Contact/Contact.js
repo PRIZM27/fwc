@@ -6,7 +6,6 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import classes from './_Contact.module.scss';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
@@ -208,7 +207,7 @@ const Contact = (props) => {
           // mt={'5rem'}
           color="secondary"
           sx={{
-            fontSize: mobile ? '4.5rem' : '6rem',
+            fontSize: mobile ? '3.5rem' : '6rem',
             textTransform: 'uppercase',
             overflow: 'hidden',
           }}
@@ -222,17 +221,20 @@ const Contact = (props) => {
           onSubmit={sendEmail}
           action="#"
           autoComplete="off"
-          className={classes.form}
+        
           sx={{
             display: 'grid',
             gridTemplateColumns: mobile ? '1fr' : 'repeat(2, 1fr)',
-            gridAutoRows: mobile ? '12rem' : 'auto', 
+            gridAutoRows: mobile ? '9rem' : 'auto', 
             rowGap: '2rem',
             // width: '50rem',
             // height: '60rem',
             // border: '1px solid black',
             borderRadius: '.5rem',
             paddingBottom: '4rem',
+            'div': {
+              width: '90%'
+             }
           }}
         >
           {/* <TextField type='hidden' name='contact_number' /> */}

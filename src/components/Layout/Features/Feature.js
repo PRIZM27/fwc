@@ -79,6 +79,7 @@ const Features = () => {
       component="section"
       container
       direction='column'
+      alignItems='center'
       sx={{
         width: '100vw',
         height: '100vh',

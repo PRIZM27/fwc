@@ -226,7 +226,13 @@ export default function SwipeableTemporaryDrawer(props) {
       sx={{
         display: 'flex',
         justifyContent: 'flex-end',
-        '&.MuiBox-root': { backgroundColor: '#FDC600' },
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        paddingRight:'2rem',
+        width: '100vw',
+        zIndex: 2000,
+        '&.MuiBox-root': { backgroundColor: '#FFFAED' },
       }}
     >
       <SwipeableDrawer
@@ -239,6 +245,7 @@ export default function SwipeableTemporaryDrawer(props) {
           '.MuiPaper-root': {
             backgroundColor: '#FFFAED',
           },
+          zIndex: 3000,
         }}
       >
         {list}

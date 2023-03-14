@@ -136,7 +136,7 @@ const StaffCard = (props) => {
       >
         <Typography variant='body1' fontSize='1.2rem'>
           {person.bio.split('\n').map(p => (
-            <span className={classes['card__text-break']}>{p}</span>
+            <span key={`${p.name}${Math.random()}`} className={classes['card__text-break']}>{p}</span>
           ))}
         </Typography>
         <Button

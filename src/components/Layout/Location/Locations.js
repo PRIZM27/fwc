@@ -1,7 +1,5 @@
 // React imports
 
-
-
 import { Fragment } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -17,6 +15,9 @@ import classes from './_Locations.module.scss';
 
 import MapSection from '../../Map/Map';
 
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme } from '@mui/system';
+const theme = createTheme();
 
 // custom component
 const SectionPolygonOdd = styled(Grid)(({ theme }) => ({
@@ -24,42 +25,67 @@ const SectionPolygonOdd = styled(Grid)(({ theme }) => ({
   height: '100vh',
   // marginTop: '-11rem',
   paddingTop: '5rem',
-  paddingBottom: '10rem',
-  background: '#000',
+  // paddingBottom: '5rem',
+  background: '##FFFCF9',
+  [theme.breakpoints.down('md')]: { 
+    height: '125vh',
+  }
 }));
 
-
-
 const Locations = (props) => {
-
-
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <SectionPolygonOdd
       container
-      direction={'row'}
+      direction={mobile ? 'column' : 'row'}
+      justifyContent={mobile ? 'auto': 'center'}
       className={classes.section__locations}
+      rowGap='2rem'
     >
-      <Typography
-        textAlign={'center'}
-        variant="h2"
-        fontWeight={'600'}
-        fontSize={'8rem'}
-        width={'100%'}
-        mb={'3rem'}
-        color="secondary"
-        sx={{
-          textTransform: 'uppercase',
-        }}
-      >
-        Locations
-      </Typography>
+      <Stack direction="column" width={'100%'} alignItems="center">
+        <Typography
+          textAlign={'center'}
+          variant="h2"
+          fontWeight={'600'}
+          fontSize={mobile ? '6rem' : '7rem'}
+          mb={'3rem'}
+          color="secondary"
+          sx={{
+            textTransform: 'uppercase',
+            overflow: 'hidden'
+          }}
+        >
+          Locations
+        </Typography>
+        <Typography
+          variant="body1"
+          fontSize="1.6rem"
+          width={mobile ? '80%' : "50%"}
+          // textAlign={'center'}
+          // variant="h2"
+          // fontWeight={'600'}
+          // fontSize={'8rem'}
+          // width={'100%'}
+          // mb={'3rem'}
+          // color="secondary"
+          // sx={{
+          //   textTransform: 'uppercase',
+          // }}
+        >
+          At this time, our services are fully remote and available only to
+          residents of Virginia and D.C. Be sure to follow us on social media
+          for announcements on areas we're serving next.
+        </Typography>
+      </Stack>
+
       <Grid
         className={classes.location__details}
         item
         container
-        width={'40%'}
-        justifyContent={'center'}
+        direction={mobile ? 'row' : 'column'}
+        width={mobile ? '100%' : '40%'}
+        justifyContent={mobile ?'center' : 'start'}
       >
         <Grid
           item
@@ -69,33 +95,33 @@ const Locations = (props) => {
           alignItems={'center'}
           rowGap={'3rem'}
         >
-          <Box className={classes.details}>
-            <Typography variant="h4">Mailing Address</Typography>
+          <Stack className={classes.details} rowGap="1rem">
+            <Typography variant="h4" fontWeight='600'>Mailing Address</Typography>
             <Typography variant="body1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
               sed blandit libero volutpat sed cras.
             </Typography>
-          </Box>
-          <Box className={classes.details}>
-            <Typography variant="h4">Phone</Typography>
+          </Stack>
+          <Stack className={classes.details} rowGap="1rem">
+            <Typography variant="h4" fontWeight='600'>Phone</Typography>
             <Typography variant="body1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
               sed blandit libero volutpat sed cras.
             </Typography>
-          </Box>
-          <Box className={classes.details}>
-            <Typography variant="h4">Email</Typography>
+          </Stack>
+          <Stack className={classes.details} rowGap="1rem">
+            <Typography variant="h4" fontWeight='600'>Email</Typography>
             <Typography variant="body1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc
               sed blandit libero volutpat sed cras.
             </Typography>
-          </Box>
+          </Stack>
         </Grid>
       </Grid>
-      <Grid item container width="50%">
+      <Grid item container width={mobile ? '100%' : '50%'} height={mobile ? '60rem' : '100%'} justifyContent='center'>
         <MapSection />
       </Grid>
     </SectionPolygonOdd>
