@@ -124,9 +124,14 @@ const Locations = (props) => {
       <Grid 
       item 
       container 
-      width={mobile ? '100vw' : '50%'}
-      height={mobile ? '50rem' : '100%'} 
-       justifyContent='center'>
+      width={mobile ? '100%' : '50%'}
+      // justifyContent='center'
+      height={mobile ? '25rem' : '50rem'}
+      sx={{
+        display: 'grid',
+
+      }}
+       >
         <MapSection />
       </Grid>
     </SectionPolygonOdd>
