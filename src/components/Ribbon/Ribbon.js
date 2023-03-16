@@ -53,6 +53,8 @@ import rriley from '../../assets/images/staff/rashonda.jpeg';
 //   }
 // );
 
+import classes from './Ribbon.module.scss'
+
 const Ribbon = (props) => {
   const { staff } = props;
 
@@ -66,6 +68,8 @@ const Ribbon = (props) => {
         sx={{
           width: '20rem',
           height: '25rem',
+          // width: '12rem',
+          // height: '20rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -79,6 +83,8 @@ const Ribbon = (props) => {
           sx={{
             width: '15rem',
             height: '15rem',
+            // width: '10rem',
+            // height: '15rem',
             borderRadius: '50%',
             transition: 'all 0.2s ease',
             '&:hover': {
@@ -101,15 +107,22 @@ const Ribbon = (props) => {
 
   return (
     <Box
+    className={classes.ribbon}
       sx={{
         width: '100%',
         // height: '250px',
-        height: '25%',
+        // height: '25%',
+        // paddingLeft: '2rem',
+        // paddingRight: '2rem',
+        // zIndex: 10,
+        // position: 'fixed',
+        // top: '80rem',
+        height: '100%',
         paddingLeft: '2rem',
         paddingRight: '2rem',
         zIndex: 10,
-        position: 'fixed',
-        top: '80rem',
+        // position: 'absolute',
+        // top: '80rem',
         overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',

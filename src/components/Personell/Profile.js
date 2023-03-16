@@ -8,14 +8,24 @@ import Typography from '@mui/material/Typography';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Ribbon from '../Ribbon/Ribbon';
 
 import classes from './_Profile.module.scss';
 
+import { useMediaQuery } from '@mui/material';
+import { createTheme } from '@mui/system';
+
+const theme = createTheme()
+
+
 const Profile = (props) => {
+
+  const largeScreen = useMediaQuery(theme.breakpoints.down('lg'));
+
   const { person } = props;
 
   return (
-    <Box>
+    <Box className={classes.person__box}>
       <Grid
         container
         direction={'row'}
@@ -86,7 +96,7 @@ const Profile = (props) => {
             fontSize="1.4rem"
             fontWeight="400"
             lineHeight={1.8}
-            width='80%'
+            width={largeScreen ? '100%' : '80%'}
           >
             {person.bio}
           </Typography>

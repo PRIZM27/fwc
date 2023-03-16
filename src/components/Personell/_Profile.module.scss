@@ -5,3 +5,8 @@
   height: 5rem;
   // align-self: center;
 }
+
+.person__box { 
+  grid-column: 1 / -1;
+  grid-row: 1 / -1
+}

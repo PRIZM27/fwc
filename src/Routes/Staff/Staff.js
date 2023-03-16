@@ -29,6 +29,8 @@ import cardlaCardImage from '../../assets/images/staff/carla-card-image.png';
 
 import { create } from '@mui/material/styles/createTransitions';
 
+import classes from './_Staff.module.scss'
+
 const staff = [
   {
     id: 'rashonda-riley',
@@ -78,6 +80,21 @@ const Staff = () => {
     setPerson(index);
   };
 
+  // const GridExperiment = (
+  //   <Box sx={{
+  //     display: 'grid',
+  //     gridTemplateColumns: '1fr',
+  //     gridTemplateRows: '90vh 20rem',
+  //   }}>
+  //     <Profile person={staff[person]} />
+  //     <Ribbon
+  //       className="ribbon"
+  //       staff={staff}
+  //       onHandleChangePerson={handleChangePerson}
+  //     />
+  //   </Box>
+  // )
+
 
 
   if (mobile) {
@@ -118,23 +135,42 @@ const Staff = () => {
     );
   }
 
-  return (
-    <Grid 
-    container 
-    width="100vw" 
-    height="100vh" 
-    sx={{ 
+  return ( 
+    <Box sx={{
       display: 'grid',
-    }}
-    >
-      <Profile person={staff[person]} />
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: '75vh 25vh',
+      // gridTemplateRows: '80vh 20vh',
+
+    }}>
+        <Profile className={classes.person__box} person={staff[person]}/>
+        
       <Ribbon
-        className="ribbon"
         staff={staff}
         onHandleChangePerson={handleChangePerson}
       />
-    </Grid>
-  );
+    </Box>
+  )
+
+
+
+// return (
+//   <Grid 
+//   container 
+//   width="100vw" 
+//   height="100vh" 
+//   sx={{ 
+//     display: 'grid',
+//   }}
+//   >
+//     <Profile person={staff[person]} />
+//     <Ribbon
+//       className="ribbon"
+//       staff={staff}
+//       onHandleChangePerson={handleChangePerson}
+//     />
+//   </Grid>
+// );
 };
 
 export default Staff;
