@@ -330,6 +330,8 @@ const TopNav = (props) => {
               }}
               sx={{
                 fontSize:'1.2rem',
+                backgroundColor: '#FFFAED',
+
               }}
             >
               {option.name}

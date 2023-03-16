@@ -144,4 +144,9 @@
 .card__text-break { 
   display: block;
   margin-top: .5rem;
+  
+  a { 
+    text-decoration: none;
+    color: white
+  }
 }

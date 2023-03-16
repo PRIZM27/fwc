@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Link } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
@@ -117,7 +118,7 @@ const StaffCard = (props) => {
               overflow: 'hidden',
             }}
           >
-            {`Book with`} <span className={classes['card__text-break']}>{`${firstName} ${lastName}`}</span>
+            {`Book with`} <span className={classes['card__text-break']}><Link to='https://fortitudewellnesscollective.clientsecure.me/request/service'>{`${firstName} ${lastName}`}</Link></span>
           </Button>
         </Stack>
       </Box>

@@ -22,7 +22,7 @@ const theme = createTheme();
 // custom component
 const SectionPolygonOdd = styled(Grid)(({ theme }) => ({
   width: '100vw',
-  height: '100vh',
+  height: 'auto',
   // marginTop: '-11rem',
   paddingTop: '5rem',
   // paddingBottom: '5rem',

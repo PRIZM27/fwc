@@ -7,6 +7,11 @@ import Typography from '@mui/material/Typography';
 
 import ButtonLarge from './Buttons/ButtonLarge';
 
+import { createTheme } from '@mui/system';
+
+const theme = createTheme();
+
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -15,8 +20,8 @@ const style = {
   // left: 0,
   transform: 'translate(-50%, -50%)',
   // width: 400,
-  width: '500',
-  height: '600',
+  width: theme.breakpoints.down('sm') ? '300' : '500',
+  height: theme.breakpoints.down('sm') ? '400' : '700',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -66,6 +71,7 @@ const ModalContact = (props) => {
   //   </Modal>
   // </div>
     <div>
+        
       <Modal
         open={open}
         onClose={handleClose}
@@ -77,6 +83,7 @@ const ModalContact = (props) => {
             id="modal-modal-title"
             variant="h1"
             color='secondary'
+            fontSize='5rem'
             sx={{
               fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
             }}
@@ -87,7 +94,7 @@ const ModalContact = (props) => {
             id="modal-modal-description"
             variant="body1"
             color='secondary'
-
+            fontSize='2rem'
             sx={{
               fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
             }}
@@ -97,8 +104,9 @@ const ModalContact = (props) => {
             We look forward to connecting with you soon!
           </Typography>
         </Box>
+    
       </Modal>
-      <ButtonLarge onClick={handleClose}>Close</ButtonLarge>
+
     </div>
   );
 };

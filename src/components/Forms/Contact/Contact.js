@@ -154,6 +154,12 @@ const Contact = (props) => {
         setFormSubmitted(false);
         setShowModal(true);
 
+
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+   
+
         // setTimeout(() => { 
         //   setFormSubmitted(false);
         //   setShowModal(true);
@@ -163,10 +169,6 @@ const Contact = (props) => {
         //   }, 2500);
         // },2000)
 
-        setTimeout(() => {
-          navigate('/');
-        }, 3000);
-   
 
     } catch (err) {
 
@@ -187,6 +189,7 @@ const Contact = (props) => {
 
   const closeModal = () => {
     setShowModal(false);
+    navigate('/');
   };
 
   // if (formSubmitted)

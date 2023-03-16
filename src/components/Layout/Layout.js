@@ -16,6 +16,7 @@ import Services from './Services/Services';
 import GettingStarted from './GettingStarted/GettingStarted';
 import Locations from './Location/Locations';
 import Contact from '../Forms/Contact/Contact';
+import Footer from './Footer/Footer';
 
 import Profile from '../Personell/Profile';
 import Ribbon from '../Ribbon/Ribbon';
@@ -81,6 +82,7 @@ const Layout = () => {
       <Services />
       <Locations />
       <GettingStarted /> 
+      <Footer />
       {/* <Locations />}
       {showSection ==='contact' && <Contact />}
       {showSection === 'staff' && <Staff />}   
