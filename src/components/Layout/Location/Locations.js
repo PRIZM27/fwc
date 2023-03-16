@@ -48,7 +48,7 @@ const Locations = (props) => {
           textAlign={'center'}
           variant="h2"
           fontWeight={'600'}
-          fontSize={mobile ? '6rem' : '7rem'}
+          fontSize={mobile ? '4.5rem' : '7rem'}
           mb={'3rem'}
           color="secondary"
           sx={{

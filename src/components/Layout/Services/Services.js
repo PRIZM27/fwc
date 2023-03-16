@@ -167,11 +167,11 @@ const Services = () => {
         variant="h2"
         fontSize="6rem"
         fontWeight={400}
-        color="secondary"
         width={'100%'}
         // mb={'3rem'}
         sx={{
           textTransform: 'uppercase',
+          color: '#FFFAED'
         }}
       >
         Services
