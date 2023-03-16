@@ -1,10 +1,13 @@
-
 import { useState, useReducer, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import ModalContact from '../../Modal';
+import CircularProgress from '@mui/material/CircularProgress';
+import Stack from '@mui/material/Stack';
 
 
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -18,32 +21,31 @@ import contactBgImageSmall from '../../../assets/images/calm-copy-small.jpg';
 const theme = createTheme({});
 
 const formReducer = (state, action) => {
-
   switch (action.type) {
     case 'letters_only_input':
       const regexNumber = /\d/i;
       // regex for at least on arbitrary alphabetic character
       // const regexLetter = /[A-Za-z]/i;
-      const regexLetter = /^[A-Za-z]+$/i
+      const regexLetter = /^[A-Za-z]+$/i;
       // regex evaluates the input
       const hasNumber = action.payload.value.trim().match(regexNumber); // will be false if no number
       const hasLetter = action.payload.value.trim().match(regexLetter);
-      console.log(hasLetter)
+      // console.log(hasLetter)
       // const validity = hasLetter && !hasNumber ? true : false;
 
       const invalid = !hasLetter || hasNumber ? true : false;
 
-      console.log(invalid, 'invalid operation')
+      // console.log(invalid, 'invalid operation')
       return {
         ...state,
         [`${action.payload.name}Invalid`]: invalid,
       };
-   
-      // return {
-      //   ...state,
-      //   [`${action.payload.name}Valid`]: validity,
-      // };
-      /*
+
+    // return {
+    //   ...state,
+    //   [`${action.payload.name}Valid`]: validity,
+    // };
+    /*
       // ⚠️⚠️⚠️⚠️ DO NOT DELETE! : EVALUATE TO SEE IF YOU CAN ACCOUNT FOR EMPTY STRING WITH THIS CODE ⚠️⚠️⚠️⚠️
       // console.log(`${action.payload.name}Input`)
       // console.log(typeof action.payload.value, 'input value');
@@ -69,31 +71,35 @@ const formReducer = (state, action) => {
     case 'email_input':
       const emailRegex =
         /^[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)*@[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)+$/i;
-      
-        const emailMatch = action.payload.value.trim().match(emailRegex);
-        console.log(emailMatch);
 
-        return {
-          ...state,
-          emailInvalid: emailMatch ? false : true,
-        };
+      const emailMatch = action.payload.value.trim().match(emailRegex);
+      // console.log(emailMatch);
 
-      case 'phone_input' : 
-        const phoneRegex = /^[+]?(?=(?:[^\dx]*\d){7})(?:\(\d+(?:\.\d+)?\)|\d+(?:\.\d+)?)(?:[ -]?(?:\(\d+(?:\.\d+)?\)|\d+(?:\.\d+)?))*(?:[ ]?(?:x|ext)\.?[ ]?\d{1,5})?$/;
-        const phoneMatch = action.payload.value.trim().match(phoneRegex);
+      return {
+        ...state,
+        emailInvalid: emailMatch ? false : true,
+      };
 
-        return { 
-          ...state,
-          phoneInvalid: phoneMatch ? false : true,
-        }
+    case 'phone_input':
+      const phoneRegex =
+        /^[+]?(?=(?:[^\dx]*\d){7})(?:\(\d+(?:\.\d+)?\)|\d+(?:\.\d+)?)(?:[ -]?(?:\(\d+(?:\.\d+)?\)|\d+(?:\.\d+)?))*(?:[ ]?(?:x|ext)\.?[ ]?\d{1,5})?$/;
+      const phoneMatch = action.payload.value.trim().match(phoneRegex);
+
+      return {
+        ...state,
+        phoneInvalid: phoneMatch ? false : true,
+      };
     default:
-      console.log('switch default');
+    // console.log('switch default');
   }
 };
 
 const Contact = (props) => {
   const contactForm = useRef();
   const [inputTouched, setInputTouched] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   // error state of form elements
   // const [state, dispatchValidate] = useReducer(formReducer, {
@@ -114,34 +120,60 @@ const Contact = (props) => {
     messageInvalid: null,
   });
 
-  const mobile = useMediaQuery(theme.breakpoints.down('md'))
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const invalidValues = Object.values(state);
-  console.log(invalidValues);
+  // console.log(invalidValues);
 
   // value for error prop
   // const firstNameValid = inputIsValid && inputTouched;
   // const lastNameValid = inputIsValid && inputTouched;
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setFormSubmitted(true);
 
+    try {
+      // wait for emailJS to send form details
+      await emailjs
+        .sendForm(
+          'service_64y3lvq',
+          'contact_form',
+          contactForm.current,
+          '52q1pkP1exA2jW9QT'
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
 
-    emailjs
-      .sendForm(
-        'service_64y3lvq',
-        'contact_form',
-        contactForm.current,
-        '52q1pkP1exA2jW9QT'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+        setFormSubmitted(false);
+        setShowModal(true);
+
+        // setTimeout(() => { 
+        //   setFormSubmitted(false);
+        //   setShowModal(true);
+
+        //   setTimeout(() => {
+        //     navigate('/');
+        //   }, 2500);
+        // },2000)
+
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+   
+
+    } catch (err) {
+
+      console.log(err);
+    }
+
+  
 
     // emailjs.sendForm(`${process.env.EMAILJS_SERVICE_ID}`, 'contact_form', contactForm.current, `${process.env.EMAILJS_PUBLIC_KEY}`)
     // .then((result) => {
@@ -153,19 +185,92 @@ const Contact = (props) => {
 
   // const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  // if (formSubmitted)
+  //   return (
+  //     <Stack 
+
+  //     sx={{
+  //       maxWidth: '60rem',
+  //       minHeight: '25rem',
+  //       position: 'absolute',
+  //       top: '50%',
+  //       left: '50%',
+  //       transform: 'translate(-50%, -50%)',
+  //       // border: '1px solid black',
+  //       alignItems: 'center',
+  //       rowGap: '3rem'
+  //     }}>
+  //       <Typography
+  //         variant="h1"
+  //         fontSize='6rem'
+  //         color='secondary'
+  //         sx={{
+  //           fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+  //         }}
+  //       >
+  //         Sending Form...
+  //       </Typography>
+  //       <CircularProgress size={'7rem'} color='secondary' />
+  //     </Stack>
+     
+  //   );
+
+    const Submitting = () => { 
+      return (
+        <Stack 
+
+        sx={{
+          maxWidth: '60rem',
+          minHeight: '25rem',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          // border: '1px solid black',
+          alignItems: 'center',
+          rowGap: '3rem',
+          backgroundColor:' #FFFAED',
+          borderRadius: '.5rem',
+        }}>
+          <Typography
+            variant="h1"
+            fontSize='6rem'
+            color='secondary'
+            sx={{
+              fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+            }}
+          >
+            Sending Form...
+          </Typography>
+          <CircularProgress size={'7rem'} color='secondary' />
+        </Stack>
+      )
+    }
+
+  if (showModal) {
+    return <ModalContact closeModal={closeModal} isOpen={showModal} />;
+  }
+
   return (
     <Grid
       container
       sx={{
         width: '100vw',
         height: '100vh',
-        backgroundImage: mobile ? `url(${contactBgImageSmall})` : `url(${contactBgImage})`,
+        backgroundImage: mobile
+          ? `url(${contactBgImageSmall})`
+          : `url(${contactBgImage})`,
         // backgroundSize: 'contain',
       }}
     >
-      <Grid
+      {formSubmitted && <Submitting />}
+    {!formSubmitted && <Grid
         container
-        direction='column'
+        direction="column"
         justifyContent="start"
         // width="65vw"
         // height="70vh"
@@ -203,7 +308,7 @@ const Contact = (props) => {
           fontSize={'5rem'}
           // width={'100%'}
           // ml={mobile ? 0 :'4rem'}
-          mb={mobile ? 0 :'3rem'}
+          mb={mobile ? 0 : '3rem'}
           // mt={'5rem'}
           color="secondary"
           sx={{
@@ -221,20 +326,19 @@ const Contact = (props) => {
           onSubmit={sendEmail}
           action="#"
           autoComplete="off"
-        
           sx={{
             display: 'grid',
             gridTemplateColumns: mobile ? '1fr' : 'repeat(2, 1fr)',
-            gridAutoRows: mobile ? '9rem' : 'auto', 
+            gridAutoRows: mobile ? '9rem' : 'auto',
             rowGap: '2rem',
             // width: '50rem',
             // height: '60rem',
             // border: '1px solid black',
             borderRadius: '.5rem',
             paddingBottom: '4rem',
-            'div': {
-              width: '90%'
-             }
+            div: {
+              width: '90%',
+            },
           }}
         >
           {/* <TextField type='hidden' name='contact_number' /> */}
@@ -249,7 +353,6 @@ const Contact = (props) => {
             fullWidth={mobile ? true : false}
             // error={state.firstNameValid === false && inputTouched}
             error={state.firstNameInvalid && inputTouched}
-
             onChange={(e) => {
               setInputTouched(true);
               dispatchValidate({
@@ -331,7 +434,7 @@ const Contact = (props) => {
           />
           <TextField
             required
-            name='phone'
+            name="phone"
             id="standard-basic"
             label="Phone"
             variant="standard"
@@ -349,7 +452,8 @@ const Contact = (props) => {
                 type: 'phone_input',
                 payload: e.target,
               });
-            }}  sx={{
+            }}
+            sx={{
               '.MuiFormLabel-root, .MuiInputBase-root': {
                 fontSize: '2rem',
               },
@@ -424,7 +528,7 @@ const Contact = (props) => {
             Send
           </Button>
         </Box>
-      </Grid>
+      </Grid>}
     </Grid>
   );
 };

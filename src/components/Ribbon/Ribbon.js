@@ -109,7 +109,7 @@ const Ribbon = (props) => {
         paddingRight: '2rem',
         zIndex: 10,
         position: 'fixed',
-        top: '72rem',
+        top: '80rem',
         overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',

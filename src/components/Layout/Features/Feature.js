@@ -52,7 +52,7 @@ const FeatureBox = styled(Stack)(({ theme }) => ({
   }
 }));
 
-const FeatureBoxSet = ({ feature }) => {
+export const FeatureBoxSet = ({ feature }) => {
   return (
     <FeatureBox direction="column" sx={{}}>
       <Stack direction="row" alignItems="center" columnGap="2rem">
@@ -61,7 +61,7 @@ const FeatureBoxSet = ({ feature }) => {
           {feature.feature}
         </Typography>
       </Stack>
-      <Typography fontSize="1.2rem">{feature.details}</Typography>
+      <Typography fontSize="1.2rem">{feature?.details}</Typography>
     </FeatureBox>
   );
 };

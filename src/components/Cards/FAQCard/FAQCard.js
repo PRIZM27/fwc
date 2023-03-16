@@ -52,6 +52,7 @@ return (
       >
         {props.primary}
       </Typography>
+      
     <CardContent sx={{
     }}>
       <Typography variant='body1' fontSize={'1.2rem'}>

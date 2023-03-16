@@ -8,6 +8,8 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 // Card component
 import ServicesViewCard from '../../Cards/ServicesViewCard';
+import FAQCard from '../../Cards/FAQCard/FAQCard';
+import { FeatureBoxSet } from '../Features/Feature';
 
 // sass style classes
 import classes from './_Services.module.scss';
@@ -15,6 +17,16 @@ import classes from './_Services.module.scss';
 import oneOnOneImage from '../../../assets/images/looking-up-final.png';
 import groupTherapyImage from '../../../assets/images/two-women-removebg-preview.png';
 import supervisionImage from '../../../assets/images/supervision.webp';
+
+import PhonelinkIcon from '@mui/icons-material/Phonelink';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import { Phone } from '@mui/icons-material';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme } from '@mui/system';
+
+const theme = createTheme({});
 
 const services = [
   {
@@ -36,7 +48,6 @@ const services = [
     anotherFeature: 'lorem ipsum',
     anotherFeature2: 'more lorem ipsum',
     image: groupTherapyImage,
-
   },
   {
     name: 'Wellness Coaching',
@@ -48,6 +59,50 @@ const services = [
     anotherFeature2: 'more lorem ipsum',
     image: supervisionImage,
   },
+
+  {
+    name: 'Supervision',
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..`,
+    price: 50,
+    duration: 60,
+    inPerson: 'true',
+    anotherFeature: 'lorem ipsum',
+    anotherFeature2: 'more lorem ipsum',
+    image: supervisionImage,
+  },
+];
+
+const features = [
+  {
+    icon: <PhonelinkIcon sx={
+      { 
+        fontSize: theme.breakpoints.down('md') ? '6rem' : '9rem', 
+        color: '#FFFAED', 
+        display: 'block' 
+      }} />,
+    feature: 'Remote sessions',
+    details: 'Lorem ipsum',
+  },
+  {
+    icon: <HealthAndSafetyIcon sx={
+      { fontSize: theme.breakpoints.down('md') ? '6rem' : '9rem', 
+        color: '#FFFAED', 
+        display: 'block' 
+      }} />,
+    feature: 'Carefirst-Blue Cross Blue Shield Provider',
+    details: 'Lorem ipsum',
+  },
+  {
+    icon: (
+      <AssignmentTurnedInIcon sx={{ 
+        fontSize: theme.breakpoints.down('md') ? '6rem' : '9rem', 
+        color: '#FFFAED', 
+        display: 'block' 
+      }} />
+    ),
+    feature: 'Lorem ispm procelti nuouti',
+    details: 'Lorem ipsum',
+  },
 ];
 
 const servicesContent = services.map((service, i) => {
@@ -55,36 +110,64 @@ const servicesContent = services.map((service, i) => {
     <ServicesViewCard
       key={i}
       title={service.name}
+      price={service.price}
       service={service}
       cardOrder={i}
+      
     />
   );
 });
 
+// const featuresContent =  features.map(f => <FeatureBoxSet feature={f} key={f.details}/>
+// );
+// const featureContent = features.map((f, i) => (
+//   <FeatureBoxSet feature={f} key={`${f.feature}${f.i}`} />
+// ));
+
+const featuresContent = features.map((f, i) => (
+  <Stack
+    height={theme.breakpoints.down('md') ? '15rem' : '25rem'}
+    alignItems="center"
+    rowGap='2rem'
+    sx={{
+      backgroundColor: 'transparent',
+    }}
+  >
+    {f.icon}
+    <Typography variant="h4"  fontSize={theme.breakpoints.down('md') ? '1.6rem' : '3rem'} fontWeight="600" color='#FFFAED' width='70%' textAlign={'center'}>
+      {f.feature}
+    </Typography>
+  </Stack>
+));
+
 const Services = () => {
+
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Grid
       className={classes.section__services}
       container
-      direction='row'
+      direction="column"
+      alignItems="center"
       component="section"
-      width='100vw'
-      height='100vh'
-      pt='4rem'
-      pb='4rem'
-      justifyContent={'center'}
+      rowGap="2.5rem"
+      width="100vw"
+      height={'auto'}
+      pt="4rem"
+      pb="4rem"
+      // justifyContent={'center'}
       // flexWrap={'wrap'}
       columnGap={'5%'}
-      rowGap='3rem'
+      // rowGap="3rem"
     >
       <Typography
         // data-aos="zoom-in"
         textAlign={'center'}
         variant="h2"
-        fontSize='6rem'
+        fontSize="6rem"
         fontWeight={400}
-        color='secondary'
+        color="secondary"
         width={'100%'}
         // mb={'3rem'}
         sx={{
@@ -93,7 +176,29 @@ const Services = () => {
       >
         Services
       </Typography>
-        {servicesContent}
+      <Stack
+        width="50%"
+        direction={mobile ? 'column' : 'row'}
+        justifyContent={'center'}
+        columnGap="1.5rem"
+      >
+
+        {featuresContent}
+
+      </Stack>
+      <Stack 
+        direction={'row'}
+        justifyContent='center'
+        flexWrap='wrap' 
+        width="100%" 
+        columnGap="1.5rem"
+        // overflow='visible'
+      >
+      {servicesContent}
+
+      </Stack>
+
+      
     </Grid>
   );
 };
