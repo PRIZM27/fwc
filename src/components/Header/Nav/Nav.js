@@ -13,6 +13,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -87,7 +88,7 @@ const Nav = styled(Box)(({ theme }) => ({
   padding: '1rem',
   // backgroundColor: '#A34DFF',
   // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
-  backgroundColor: '#FFFAED',
+  backgroundColor: '#FFFCF9;',
 
   // background: 'linear-gradient(90deg, hsla(0, 0%, 55%, 1) 0%, hsla(265, 97%, 60%, 1) 100%)',
   position: 'fixed',
@@ -314,12 +315,18 @@ const TopNav = (props) => {
         elevation={0}
         sx={{ 
           zIndex: 1302,
-          // cursor:'pointer'
+          cursor:'pointer',
+          '.MuiList-root': { 
+          backgroundColor: '#FFFCF9;',
+        }
+  
+
         }}
         keepMounted
         classes={{ paper: classes.menu }}
       >
         {menuOptions[valueHover]?.map((option, i) => (
+          <>
             <MenuItem
               key={`${option}${i}`}
               component={Link}
@@ -330,13 +337,13 @@ const TopNav = (props) => {
               }}
               sx={{
                 fontSize:'1.2rem',
-                backgroundColor: '#FFFAED',
 
               }}
             >
               {option.name}
             </MenuItem>
-            // <Divider />
+            <Divider />
+            </>
         ))}
       </Menu>
     </Nav>

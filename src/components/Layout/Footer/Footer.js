@@ -32,9 +32,16 @@ const Footer = (props) => {
           color='secondary'
           sx={{
             fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+
+            '.middle': { 
+              color: 'brown',
+              margin: '0 5px',
+            }
           }}
         >
-          Fortitude Wellness Collective
+          Fortitude
+          <span className='middle'>Wellness</span> 
+          Collective
         </Typography>
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -42,7 +49,7 @@ const Footer = (props) => {
         </Typography>
       </Stack>
 
-      <Stack>
+      <Stack alignItems='center'>
         <Typography fontSize={'1.6rem'}>
           <Link>Home</Link>
         </Typography>
@@ -62,8 +69,10 @@ const Footer = (props) => {
         direction="row"
         justifyContent={'flex-start'}
         alignItems="start"
-        spacing={1}
+        // spacing={1}
       >
+
+        <Stack width='100%' direction='row' justifyContent={'space-around'}>
         <IconButton
           aria-label="instagram"
           size="large"
@@ -100,6 +109,8 @@ const Footer = (props) => {
         >
           <LinkedInIcon />
         </IconButton>
+        </Stack>
+        
       </Stack>
     </Box>
   );

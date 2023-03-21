@@ -165,7 +165,7 @@ const Services = () => {
         // data-aos="zoom-in"
         textAlign={'center'}
         variant="h2"
-        fontSize="6rem"
+        fontSize={mobile ? '5rem' : '10rem'}
         fontWeight={400}
         width={'100%'}
         // mb={'3rem'}

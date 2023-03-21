@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 
 import Link from '@mui/material/Link';
-
+// import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
 
@@ -23,10 +23,9 @@ import FAQCard from '../../../components/Cards/FAQCard/FAQCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
 
-
 const ContentStack = styled(Stack)(({ theme }) => ({
-  direction:"column",
-  alignItems:"center",
+  direction: 'column',
+  alignItems: 'center',
   width: '75%',
   height: 'min-content',
   border: '1px solid black',
@@ -36,22 +35,20 @@ const ContentStack = styled(Stack)(({ theme }) => ({
 
   [theme.breakpoints.up('md')]: {
     width: '120rem',
-   },
-   [theme.breakpoints.down('md')]:{ 
-    width: '95%'
-   }
+  },
+  [theme.breakpoints.down('md')]: {
+    width: '95%',
+  },
 }));
 
-
-
 const ContentHeading = styled(Typography)(({ theme }) => ({
-  width:"100%",
+  width: '100%',
   // variant:"h3",
   fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
 
-  fontSize:'5rem',
+  fontSize: '5rem',
   fontWeight: 600,
-  textAlign:"center",
+  textAlign: 'center',
   height: 'min-content',
   // backgroundColor: '#FDC600',
   // backgroundColor: '#FDC600',
@@ -60,11 +57,10 @@ const ContentHeading = styled(Typography)(({ theme }) => ({
   padding: '1rem 0',
   display: 'flex',
   flexDirection: 'column',
-  [theme.breakpoints.down('sm')]: { 
+  [theme.breakpoints.down('sm')]: {
     fontSize: '4rem',
-  }
+  },
 }));
-
 
 const ResourceBox = styled(Stack)(({ theme }) => ({
   width: '90%',
@@ -73,9 +69,9 @@ const ResourceBox = styled(Stack)(({ theme }) => ({
   borderRadius: '.5rem',
   rowGap: '1rem',
   padding: '1rem',
-  [theme.breakpoints.up('md')]: { 
-    height: '30rem'
-  }
+  [theme.breakpoints.up('md')]: {
+    height: '30rem',
+  },
 }));
 
 const ResourceBoxSet = ({ resource }) => {
@@ -84,17 +80,15 @@ const ResourceBoxSet = ({ resource }) => {
       <Stack direction="row" alignItems="center" columnGap="2rem">
         {/* {resource.icon} */}
         <Link>
-        <Typography fontSize="1.8rem" fontWeight="600">
-         {resource.name}
-        </Typography>
+          <Typography fontSize="1.8rem" fontWeight="600">
+            {resource.name}
+          </Typography>
         </Link>
-      
       </Stack>
       {/* <Typography fontSize="1.2rem">{resource.details}</Typography> */}
     </ResourceBox>
   );
 };
-
 
 const theme = createTheme({});
 
@@ -205,70 +199,57 @@ Occasionally, our providers may need to consult with other professionals in thei
   },
 ];
 
-const resources = [ 
-  { 
+const resources = [
+  {
     name: 'The Mental Health Coalition',
     href: 'https://www.thementalhealthcoalition.org/',
-
   },
-  { 
+  {
     name: 'Therapy for Black Men',
     href: 'https://therapyforblackmen.org/about/',
-
   },
-  { 
+  {
     name: 'National Alliance on Mental Illness (NAMI)',
     href: 'https://www.nami.org/',
-
   },
-  { 
+  {
     name: 'LGBT National Help Center',
     href: 'http://www.glbtnationalhelpcenter.org/',
-
   },
-  { 
+  {
     name: 'The Trevor Project',
     href: 'http://www.thetrevorproject.org/',
-
   },
-  { 
+  {
     name: 'The Jed Foundation',
     href: 'http://www.jedfoundation.org/',
-
   },
-  { 
+  {
     name: 'The South Asian Mental Health Initiative & Network',
     href: 'https://samhin.org/',
-
   },
 
-  { 
+  {
     name: 'Substance Abuse and Mental Health Services Administration',
     href: 'http://www.samhsa.gov/',
-
   },
-  { 
+  {
     name: 'National Domestic Violence Hotline',
     href: 'http://www.thehotline.org/',
-
   },
-  { 
+  {
     name: 'Veterans Crisis Line',
     href: 'https://www.veteranscrisisline.net/',
-
   },
-  { 
+  {
     name: 'Asian American Health Initiative',
     href: 'https://aahiinfo.org/',
-
   },
-  { 
+  {
     name: 'The Loveland Foundation',
     href: 'https://thelovelandfoundation.org/',
-
   },
-  
-]
+];
 
 // FAQ section will be a collection of cards, with the question displayed as heading and answer in body of the card
 // example: https://www.mcdonalds.com/gb/en-gb/help/faq.html
@@ -283,7 +264,7 @@ const FAQ = (props) => {
       component="section"
       sx={{
         // marginTop: match ? '10rem' : 0,
-        margin: match ? '6.7rem auto 0 auto': 0,
+        margin: match ? '6.7rem auto 0 auto' : 0,
         // backgroundColor: '#FFFCF9',
         backgroundColor: '#FFEFDB',
         borderRadius: '.5rem',
@@ -338,54 +319,51 @@ const FAQ = (props) => {
           padding: smallScreen ? '0' : '3rem',
         }}
       >
-         <ContentStack
-        sx={{
-          // width: '65%',
-          height: '30rem',
-          // margin: '0 auto',
-          // border: '1px solid black',
-          // borderRadius: '.5rem',
-          // backgroundColor: '#FFFCF9',
-          padding: '2rem'
-          // backgroundColor: '#FDC600',
-          // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
-          // backgroundColor: '#FFFCF9',
-
-        }}
-      >
-        <Typography 
-        variant="h1" 
-        fontSize={match ? '7rem':'5rem' }
-        fontWeight={600} 
-        textAlign='center'
-        color='secondary'
-        sx={{
-          fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
-        // backgroundColor: '#FFFCF9',
-
-        }}
-        >
-          Help Center
-        </Typography>
-        <Typography variant="body1" fontSize="1.8rem">
-          The help center page provides answers to common questions regarding
-          psycho therapy services. If you have an inquiry not answered here,
-          feel free to contact us.
-        </Typography>
-      </ContentStack>
         <ContentStack
-          // direction="column"
-          // alignItems="center"
-          // sx={{
-          //   width: match ? '120rem' : '75%',
-          //   height: 'min-content',
-          //   border: '1px solid black',
-          //   borderRadius: '.5rem',
-          //   backgroundColor: '#FFFCF9',
-          // }}
+          sx={{
+            // width: '65%',
+            height: '30rem',
+            // margin: '0 auto',
+            // border: '1px solid black',
+            // borderRadius: '.5rem',
+            // backgroundColor: '#FFFCF9',
+            padding: '2rem',
+            // backgroundColor: '#FDC600',
+            // background: 'linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%)',
+            // backgroundColor: '#FFFCF9',
+          }}
         >
-          <ContentHeading variant='h3'
+          <Typography
+            variant="h1"
+            fontSize={match ? '7rem' : '5rem'}
+            fontWeight={600}
+            textAlign="center"
+            color="secondary"
+            sx={{
+              fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+              // backgroundColor: '#FFFCF9',
+            }}
           >
+            Help Center
+          </Typography>
+          <Typography variant="body1" fontSize="1.8rem">
+            The help center page provides answers to common questions regarding
+            psycho therapy services. If you have an inquiry not answered here,
+            feel free to contact us.
+          </Typography>
+        </ContentStack>
+        <ContentStack
+        // direction="column"
+        // alignItems="center"
+        // sx={{
+        //   width: match ? '120rem' : '75%',
+        //   height: 'min-content',
+        //   border: '1px solid black',
+        //   borderRadius: '.5rem',
+        //   backgroundColor: '#FFFCF9',
+        // }}
+        >
+          <ContentHeading variant="h3">
             Frequently Asked Questions
           </ContentHeading>
           <Stack
@@ -403,20 +381,16 @@ const FAQ = (props) => {
         </ContentStack>
 
         <ContentStack
-          // direction="column"
-          // alignItems="center"
-          // sx={{
-          //   width: match ? '120rem' : '75%',
-          //   height: 'min-content',
-          //   border: '1px solid black',
-          //   borderRadius: '.5rem'
-          // }}
+        // direction="column"
+        // alignItems="center"
+        // sx={{
+        //   width: match ? '120rem' : '75%',
+        //   height: 'min-content',
+        //   border: '1px solid black',
+        //   borderRadius: '.5rem'
+        // }}
         >
-          <ContentHeading variant='h3'
-           
-          >
-            Practice Policies
-          </ContentHeading>
+          <ContentHeading variant="h3">Practice Policies</ContentHeading>
 
           <Stack
             width="100%"
@@ -429,20 +403,17 @@ const FAQ = (props) => {
           </Stack>
         </ContentStack>
 
-        <ContentStack 
-          // direction="column"
-          // alignItems="center"
-          // sx={{
-          //   width: match ? '120rem' : '75%',
-          //   height: 'min-content',
-          //   border: '1px solid black',
-          //   borderRadius: '.5rem'
-          // }}
+        <ContentStack
+        // direction="column"
+        // alignItems="center"
+        // sx={{
+        //   width: match ? '120rem' : '75%',
+        //   height: 'min-content',
+        //   border: '1px solid black',
+        //   borderRadius: '.5rem'
+        // }}
         >
-          <ContentHeading variant='h3'
-          >
-            Resources
-          </ContentHeading>
+          <ContentHeading variant="h3">Resources</ContentHeading>
           {/* <Typography variant='body1' fontSize={'1.8rem'} height='6rem' fontWeight='600'>
           If you or someone you know is experiencing a mental health or substance use problem, 
           there are several resources available to find out more information or get connected with help.
@@ -455,7 +426,6 @@ const FAQ = (props) => {
             flexWrap={match ? 'wrap' : 'no-wrap'}
             padding="2rem"
           >
-      
             {/* {resources.map((r, i) => (
               <ListItem key={i} disablePadding >
                 <Link 
@@ -475,7 +445,9 @@ const FAQ = (props) => {
              
             ))} */}
             {resources.map((r, i) => (
-               <FAQCard primary={r.name} key={`${r.resource}${i}`}/>
+              <Link href={r.href} target='_blank' key={r.href} >
+                <FAQCard primary={r.name} key={`${r.resource}${i}`} />
+              </Link>
             ))}
           </Stack>
         </ContentStack>

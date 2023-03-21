@@ -1,5 +1,8 @@
 import { useState, useReducer, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
+
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -10,6 +13,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 
 
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
 
@@ -17,6 +21,12 @@ import emailjs from '@emailjs/browser';
 
 import contactBgImage from '../../../assets/images/calm-copy-2.jpg';
 import contactBgImageSmall from '../../../assets/images/calm-copy-small.jpg';
+
+import BasicSelect from '../Select';
+import BasicCheckBoxes from '../CheckBoxes';
+
+
+
 
 const theme = createTheme({});
 
@@ -222,6 +232,7 @@ const Contact = (props) => {
      
   //   );
 
+  // content rendered while in submitting state
     const Submitting = () => { 
       return (
         <Stack 
@@ -254,10 +265,12 @@ const Contact = (props) => {
       )
     }
 
+    // modal rendered after form sucessfully submitted
   if (showModal) {
     return <ModalContact closeModal={closeModal} isOpen={showModal} />;
   }
 
+  // default JSX returned
   return (
     <Grid
       container
@@ -270,7 +283,7 @@ const Contact = (props) => {
         // backgroundSize: 'contain',
       }}
     >
-      {formSubmitted && <Submitting />}
+    {formSubmitted && <Submitting />}
     {!formSubmitted && <Grid
         container
         direction="column"
@@ -291,18 +304,7 @@ const Contact = (props) => {
           borderRadius: '.5rem',
         }}
       >
-        {/* <Grid 
-      item 
-      className={classes['section__contact--left']} 
-      width={'45%'} 
-      sx={{
-        borderRight:'1px solid black',
-
-        backgroundImage: `url(${paperPlanes})`,
-        
-      }}>
-
-      </Grid> */}
+    
 
         <Typography
           textAlign={'left'}
@@ -346,10 +348,10 @@ const Contact = (props) => {
         >
           {/* <TextField type='hidden' name='contact_number' /> */}
           <TextField
-            emailjsvariable={'first_name'}
+            // emailjsvariable={'first_name'}
             required
             id="standard-basic"
-            name="firstName"
+            name="first_name"
             label="First Name"
             variant="standard"
             helperText="Must have at least 1 character. Letters only."
@@ -377,9 +379,10 @@ const Contact = (props) => {
             }}
           />
           <TextField
+            // emailjsvariable={'last_name'}
             required
             id="standard-basic"
-            name="lastName"
+            name="last_name"
             label="Last Name"
             variant="standard"
             // error={state.errorLastName}
@@ -406,10 +409,10 @@ const Contact = (props) => {
             }}
           />
           <TextField
-            emailjsvariable={'user_email'}
+            // emailjsvariable={'user_email'}
             required
             type="email"
-            name="email"
+            name="user_email"
             id="standard-basic"
             label="Email"
             variant="standard"
@@ -437,7 +440,7 @@ const Contact = (props) => {
           />
           <TextField
             required
-            name="phone"
+            name="user_phone"
             id="standard-basic"
             label="Phone"
             variant="standard"
@@ -464,7 +467,7 @@ const Contact = (props) => {
           />
           <TextField
             id="standard-basic"
-            name="pronoun"
+            name="user_pronoun"
             label="Preferred Pronouns"
             variant="standard"
             helperText="Must be at least 1 alphabetic character"
@@ -489,6 +492,14 @@ const Contact = (props) => {
               },
             }}
           />
+
+         <BasicCheckBoxes direction='row'  />
+
+          <BasicSelect sx={{
+            '.MuiBox-root': { 
+              gridColumn: '1',
+            }
+          }} />
 
           <TextField
             required
