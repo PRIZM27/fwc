@@ -16,9 +16,13 @@ const Footer = (props) => {
     <Box
       sx={{
         width: '100%',
-        height: '20rem',
+        height: '30rem',
         backgroundColor: '#FFFAED',
-        padding: '2rem',
+        padding: '10rem 2rem 2rem 2rem',
+        clipPath: 'polygon(50% 2%, 84% 10%, 100% 20%, 100% 77%, 100% 100%, 0 100%, 0 79%, 0 20%, 16% 10%)',
+        // clipPath: 'polygon(50% 0, 80% 4%, 100% 15%, 100% 77%, 100% 100%, 0 100%, 0 79%, 0 15%, 20% 5%)',
+
+
 
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',

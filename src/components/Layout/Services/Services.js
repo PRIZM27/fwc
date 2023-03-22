@@ -126,6 +126,7 @@ const servicesContent = services.map((service, i) => {
 
 const featuresContent = features.map((f, i) => (
   <Stack
+    key={`${f}${i}`}
     height={theme.breakpoints.down('md') ? '15rem' : '25rem'}
     alignItems="center"
     rowGap='2rem'

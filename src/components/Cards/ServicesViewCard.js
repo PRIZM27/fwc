@@ -101,7 +101,7 @@ export default function ServicesViewCard(props) {
         // data-aos={'fade-up'}
         // data-aos-duration={800}
         sx={{
-          width: smallScreen ? '35rem' : '45rem',
+          width: smallScreen ? '35rem' : '40rem',
           height: smallScreen ? '60rem' : '60rem',
         }}
         className={classes.card}

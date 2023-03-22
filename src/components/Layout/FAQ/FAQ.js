@@ -20,8 +20,9 @@ import Typography from '@mui/material/Typography';
 import BasicAccordian from '../../Accordian/Accordian';
 import FAQCard from '../../../components/Cards/FAQCard/FAQCard';
 
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { createTheme } from '@mui/system';
+
+
+import useMediaQ from '../../../custom-hooks/useMediaQ';
 
 const ContentStack = styled(Stack)(({ theme }) => ({
   direction: 'column',
@@ -90,7 +91,6 @@ const ResourceBoxSet = ({ resource }) => {
   );
 };
 
-const theme = createTheme({});
 
 const faqs = [
   {
@@ -254,8 +254,9 @@ const resources = [
 // FAQ section will be a collection of cards, with the question displayed as heading and answer in body of the card
 // example: https://www.mcdonalds.com/gb/en-gb/help/faq.html
 const FAQ = (props) => {
-  const match = useMediaQuery(theme.breakpoints.up('md'));
-  const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  
+const smallScreenBelow = useMediaQ('down', 'sm');
+const mediumScreenAbove = useMediaQ('up', 'md');
 
   return (
     <Grid
@@ -263,8 +264,8 @@ const FAQ = (props) => {
       height="100vh"
       component="section"
       sx={{
-        // marginTop: match ? '10rem' : 0,
-        margin: match ? '6.7rem auto 0 auto' : 0,
+        // marginTop: mediumScreenAbove ? '10rem' : 0,
+        margin: mediumScreenAbove ? '6.7rem auto 0 auto' : 0,
         // backgroundColor: '#FFFCF9',
         backgroundColor: '#FFEFDB',
         borderRadius: '.5rem',
@@ -289,7 +290,7 @@ const FAQ = (props) => {
       >
         <Typography 
         variant="h1" 
-        fontSize={match ? '8rem':'5rem' }
+        fontSize={mediumScreenAbove ? '8rem':'5rem' }
         fontWeight={600} 
         textAlign='center'
         color='secondary'
@@ -316,7 +317,7 @@ const FAQ = (props) => {
         rowGap="2rem"
         columnGap={'1rem'}
         sx={{
-          padding: smallScreen ? '0' : '3rem',
+          padding: smallScreenBelow ? '0' : '3rem',
         }}
       >
         <ContentStack
@@ -335,7 +336,7 @@ const FAQ = (props) => {
         >
           <Typography
             variant="h1"
-            fontSize={match ? '7rem' : '5rem'}
+            fontSize={mediumScreenAbove ? '7rem' : '5rem'}
             fontWeight={600}
             textAlign="center"
             color="secondary"
@@ -356,7 +357,7 @@ const FAQ = (props) => {
         // direction="column"
         // alignItems="center"
         // sx={{
-        //   width: match ? '120rem' : '75%',
+        //   width: mediumScreenAbove ? '120rem' : '75%',
         //   height: 'min-content',
         //   border: '1px solid black',
         //   borderRadius: '.5rem',
@@ -368,10 +369,10 @@ const FAQ = (props) => {
           </ContentHeading>
           <Stack
             // width='100%'
-            direction={match ? 'row' : 'column'}
+            direction={mediumScreenAbove ? 'row' : 'column'}
             columnGap="2rem"
             rowGap="2rem"
-            flexWrap={match ? 'wrap' : 'no-wrap'}
+            flexWrap={mediumScreenAbove ? 'wrap' : 'no-wrap'}
             padding="2rem"
           >
             {faqs.map((f, i) => (
@@ -384,7 +385,7 @@ const FAQ = (props) => {
         // direction="column"
         // alignItems="center"
         // sx={{
-        //   width: match ? '120rem' : '75%',
+        //   width: mediumScreenAbove ? '120rem' : '75%',
         //   height: 'min-content',
         //   border: '1px solid black',
         //   borderRadius: '.5rem'
@@ -395,7 +396,7 @@ const FAQ = (props) => {
           <Stack
             width="100%"
             height="min-content"
-            direction={match ? 'row' : 'column'}
+            direction={mediumScreenAbove ? 'row' : 'column'}
             // alignItems="center"
             rowGap
           >
@@ -407,7 +408,7 @@ const FAQ = (props) => {
         // direction="column"
         // alignItems="center"
         // sx={{
-        //   width: match ? '120rem' : '75%',
+        //   width: mediumScreenAbove ? '120rem' : '75%',
         //   height: 'min-content',
         //   border: '1px solid black',
         //   borderRadius: '.5rem'
@@ -420,10 +421,10 @@ const FAQ = (props) => {
           </Typography> */}
           <Stack
             // width='100%'
-            direction={match ? 'row' : 'column'}
+            direction={mediumScreenAbove ? 'row' : 'column'}
             columnGap="2rem"
             rowGap="2rem"
-            flexWrap={match ? 'wrap' : 'no-wrap'}
+            flexWrap={mediumScreenAbove ? 'wrap' : 'no-wrap'}
             padding="2rem"
           >
             {/* {resources.map((r, i) => (
