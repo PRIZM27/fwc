@@ -126,7 +126,7 @@ const Locations = (props) => {
       container 
       width={mobile ? '100%' : '50%'}
       // justifyContent='center'
-      height={mobile ? '25rem' : '50rem'}
+      height={mobile ? '30vh' : '50rem'}
       sx={{
         display: 'grid',
 
