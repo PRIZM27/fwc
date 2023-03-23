@@ -7,7 +7,9 @@ const theme = createTheme();
 
 const useMediaQ = (direction, size) => { 
 
-  return useMediaQuery(theme.breakpoints.direction(`${size}`))
+  
+
+  return useMediaQuery(theme.breakpoints[direction](`${size}`))
 
 }
 
