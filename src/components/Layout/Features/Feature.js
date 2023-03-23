@@ -17,7 +17,6 @@ import { createTheme } from '@mui/system';
 
 const theme = createTheme({});
 
-
 const features = [
   {
     feature: 'Inclusive',
@@ -47,9 +46,9 @@ const FeatureBox = styled(Stack)(({ theme }) => ({
   borderRadius: '.5rem',
   rowGap: '1rem',
   padding: '1rem',
-  [theme.breakpoints.up('md')]: { 
-    height: '30rem'
-  }
+  [theme.breakpoints.up('md')]: {
+    height: '30rem',
+  },
 }));
 
 export const FeatureBoxSet = ({ feature }) => {
@@ -66,9 +65,9 @@ export const FeatureBoxSet = ({ feature }) => {
   );
 };
 
-const featureContent = features.map((f,i) => <FeatureBoxSet feature={f} key={`${f.feature}${f.i}`} />);
-
-
+const featureContent = features.map((f, i) => (
+  <FeatureBoxSet feature={f} key={`${f.feature}${f.i}`} />
+));
 
 const Features = () => {
   const mobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -78,8 +77,8 @@ const Features = () => {
     <Grid
       component="section"
       container
-      direction='column'
-      alignItems='center'
+      direction="column"
+      alignItems="center"
       sx={{
         width: '100vw',
         height: '100vh',
@@ -89,6 +88,7 @@ const Features = () => {
     >
       <Grid
         container
+        item
         // direction={mobile ? "column" : 'row'}
         direction={'column'}
         // flexWrap={mobile ? 'nowrap' : 'wrap'}
@@ -112,45 +112,71 @@ const Features = () => {
           <Box
             sx={{
               width: '80%',
-              height: '45rem',
+              height: '25rem',
               backgroundColor: '#000',
               borderRadius: '.5rem',
               padding: '2rem',
               overflow: 'hidden',
-
+              display: 'flex',
             }}
           >
             <Stack
-              direction="column"
-              justifyContent={'flex-start'}
+              direction="row"
+              justifyContent={'space-between'}
               sx={{
-                width: smallScreen ? '100%' : '65%',
+                width: smallScreen ? '100%' : '60%',
               }}
             >
-              <Typography 
-              variant="h4" 
-              color="white"
-              sx={{
-                fontSize: mobile ? '3rem' : '6rem',
-                fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
-                overflow: 'hidden',
-                
-              }}
+              <Typography
+                variant="h4"
+                color="white"
+                sx={{
+                  fontSize: mobile ? '3rem' : '6rem',
+                  fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+                  overflow: 'hidden',
+                  span: {
+                    display: 'block',
+                    overflow: 'hidden',
+                  },
+                }}
               >
-                The <span className={classes.feature__span}>Fortitude</span>{' '}
+                The 
+                <span className={classes.feature__span}>Fortitude</span>{' '}
                 Difference
               </Typography>
-              <ButtonLarge>Learn More</ButtonLarge>
+            </Stack>
+            <Stack
+              width="40%"
+              direction="column"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography variant="body1" color="#fff">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation.
+              </Typography>
+              <ButtonLarge
+                sx={{
+                  backgroundColor: '#fff',
+                  '&:hover': {
+                    backgroundColor: '#FA8072',
+                    color: '#000',
+                  },
+                }}
+              >
+                Get Started
+              </ButtonLarge>
             </Stack>
           </Box>
-          <Stack 
+          <Stack
             direction={mobile ? 'column' : 'row'}
             rowGap={mobile && '1rem'}
             columnGap={!mobile && '1rem'}
             alignItems={mobile && 'center'}
-            width='90%'
+            width="90%"
           >
-          {featureContent}
+            {featureContent}
           </Stack>
         </Stack>
       </Grid>

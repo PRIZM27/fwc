@@ -101,7 +101,9 @@ export default function ServicesViewCard(props) {
         // data-aos={'fade-up'}
         // data-aos-duration={800}
         sx={{
-          width: smallScreen ? '35rem' : '40rem',
+          width: smallScreen ? '35rem' : '20%',
+          minWidth: smallScreen ? '35rem' : '28.5rem',
+          maxWidth: smallScreen ? '35rem' : '45rem',
           height: smallScreen ? '60rem' : '60rem',
         }}
         className={classes.card}
@@ -124,8 +126,8 @@ export default function ServicesViewCard(props) {
         >
           <Box
             sx={{
-              width: smallScreen ? '55%' : '60%',
-              height: smallScreen ? '30%' : '45%',
+              width: smallScreen ? '55%' : '55%',
+              height: smallScreen ? '30%' : '35%',
               display: 'flex',
               // direction:'column',
               justifyContent: 'center',
