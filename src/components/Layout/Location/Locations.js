@@ -47,13 +47,14 @@ const Locations = (props) => {
         <Typography
           textAlign={'center'}
           variant="h2"
-          fontWeight={'600'}
           fontSize={mobile ? '4.5rem' : '7rem'}
+          fontWeight={'100'}
           mb={'3rem'}
           color="secondary"
           sx={{
             textTransform: 'uppercase',
-            overflow: 'hidden'
+            overflow: 'hidden',
+
           }}
         >
           Locations
@@ -132,6 +133,9 @@ const Locations = (props) => {
 
       }}
        >
+        <Stack>
+          
+        </Stack>
         <MapSection />
       </Grid>
     </SectionPolygonOdd>

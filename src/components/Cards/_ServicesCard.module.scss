@@ -24,14 +24,17 @@
   -webkit-backface-visibility: hidden;
   border-radius: 3px;
   overflow: hidden;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  -webkit-transition: all 0.8s ease;
+  box-shadow: 2rem 1rem .8rem rgba(0, 0, 0, 0.15);
+
+  // box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  // -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  // -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
 
 }
 .card__side { 
   background-color: #FFFAED;
+background: linear-gradient(315deg, hsla(29, 92%, 70%, .4) 0%, hsla(0, 87%, 73%, .7) 100%);
 
 
  &--front-1 { 

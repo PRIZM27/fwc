@@ -30,8 +30,8 @@
     "build": "react-scripts build ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:server": "npm run start & nodemon server.js & sass -w src/styles/sass/Main.scss:public/styles.css",
-    "compile:sass": "sass ./src/assets/sass/main.scss ./public/styles.css",
+    "dev:server": "npm run start & sass -w src/styles/sass/Main.scss:public/styles.css",
+    "compile:sass": "sass -w ./src/assets/sass/main.scss ./public/styles.css",
     "backend": "nodemon server.js"
 
   },

@@ -1,21 +1,12 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
 
-// import SplitContainer from '../Layout Components/SplitBox/SplitBox';
-
-// // image imports
-// import womanSitting from '../../assets/images/woman_sitting_peacefully.jpg';
-// import womanFacingLeft from '../../assets/images/jessica-felicio-1000.jpg';
-
-// import bg from '../../assets/images/textured.png';
-// import meditate from '../../assets/images/meditate.png';
-
-import missionImage from '../../assets/images/people.webp';
+import missionSectionImage from '../../assets/images/people.webp';
+import dei from '../../assets/images/dei.webp'
 
 const theme = createTheme({});
 
@@ -25,6 +16,8 @@ const Mission = () => {
 
   return (
     <Grid
+      component='section'
+      className='section__mission'
       container
       direction={smallScreen ? 'column' : 'row'}
       justifyContent="space-between"
@@ -71,6 +64,7 @@ const Mission = () => {
           Our Mission
         </Typography>
         <Typography
+          title='mission statement'
           variant="body1"
           fontSize={smallScreen ? '1.4rem' : '1.8rem'}
           lineHeight={2}
@@ -92,11 +86,17 @@ const Mission = () => {
         m="0 auto"
         sx={{ borderRadius: '.5rem' }}
       >
-        <img
-          src={missionImage}
-          alt="illustration of woman meditating with legs crossed and folded, looking peaceful"
+        <Box
+          component={'img'}
+          src={dei}
+          alt="collage of photos showing the faces of people of various ethnic backgrounds"
           width="100%"
-        />
+          sx={{
+            objectFit: 'cover',
+          }}
+          >
+          
+        </Box>
       </Box>
     </Grid>
   );

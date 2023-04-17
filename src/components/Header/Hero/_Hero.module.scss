@@ -3,11 +3,27 @@
   min-height: 100vh;
   min-height: 100dvh;
   
-  display: flex;
-  flex-direction: column;
-	justify-content: flex-start;
+  // display: flex;
+  // flex-direction: column;
+	// justify-content: flex-start;
+
+  display: grid; 
+	grid-template-columns: 1fr;
+	grid-template-rows: 50px 2fr 1fr 50px;
+
 	// background-color: #FDC600;
-  background: linear-gradient(135deg, hsla(33, 100%, 93%, 1) 0%, hsla(33, 100%, 80%, 1) 100%);
+  // background: linear-gradient(135deg, hsla(33, 100%, 93%, .6) 0%, hsla(33, 100%, 80%, .6) 100%);
+  background-image: url('../../../assets/images/simon-berger-twukN12EN7c-unsplash.jpg');
+  background-size: cover;
+
+  &__announcements { 
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Darker Grotesque', sans-serif;
+  }
  
   &__heading, &__subheading { 
     // animation: .8s fadeUp .8s linear;
@@ -24,6 +40,12 @@
   &__image { 
     border-radius: 5px;
     
+  }
+
+
+  @media screen and (min-width: 900px) { 
+    grid-template-rows: 50px 1fr 1fr 50px;
+
   }
 }
 

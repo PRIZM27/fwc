@@ -83,7 +83,7 @@ export default function SwipeableTemporaryDrawer(props) {
         {links.map((link, index) => {
           if (link.label === 'FWC' || link.label === 'Help Center')
             return (
-              <>
+              <Box>
                 <ListItemButton
                   key={link.label}
                   component={Link}
@@ -107,12 +107,12 @@ export default function SwipeableTemporaryDrawer(props) {
                     }}
                   />
                 </ListItemButton>
-              </>
+              </Box>
             );
 
           if (link.label === 'About') {
             return (
-              <>
+              <Box>
                 <ListItemButton
                   key={link.label}
                   disablePadding
@@ -160,12 +160,12 @@ export default function SwipeableTemporaryDrawer(props) {
                     );
                   })}
                 </Collapse>
-              </>
+              </Box>
             );
           }
           if (link.label === 'Services') {
             return (
-              <>
+              <Box>
                 <ListItemButton
                   key={link.label}
                   disablePadding
@@ -190,7 +190,7 @@ export default function SwipeableTemporaryDrawer(props) {
                 <Collapse in={openServicesMenu} timeout="auto" unmountOnExit>
                   {menuOptions[1].map((o, i) => {
                     return (
-                      <List component="div" disablePadding>
+                      <List component="div" disablePadding key={`${o}${i}`}>
                         <ListItemButton
                           sx={{ pl: 4 }}
                           component={Link}
@@ -213,7 +213,7 @@ export default function SwipeableTemporaryDrawer(props) {
                     );
                   })}
                 </Collapse>
-              </>
+              </Box>
             );
           }
         })}
@@ -229,7 +229,7 @@ export default function SwipeableTemporaryDrawer(props) {
         position: 'fixed',
         top: 0,
         left: 0,
-        paddingRight:'2rem',
+        paddingRight: '2rem',
         width: '100vw',
         zIndex: 2000,
         '&.MuiBox-root': { backgroundColor: '#FFFAED' },
@@ -249,6 +249,51 @@ export default function SwipeableTemporaryDrawer(props) {
         }}
       >
         {list}
+        <Box>
+          <ListItemButton
+            component={Link}
+            to={'/contact'}
+            disablePadding
+            divider
+            // className={
+            //   `${classes.drawer__item} ` +
+            //   classes[`drawer__item--${index + 1}`]
+            // }
+            // onClick={(e) => props?.onChangeLayout(e)}
+          >
+            {/* <ListItemButton sx={{ textAlign: 'center' }}> */}
+            <ListItemText
+              primary={'Contact'}
+              sx={{
+                '.MuiTypography-root': {
+                  fontSize: '2rem',
+                  fontWeight: '600',
+                },
+              }}
+            />
+          </ListItemButton>
+        </Box>
+        <Box>
+          <ListItemButton
+            component={Link}
+            to={'/contact'}
+            disablePadding
+            divider
+            className={`${classes.drawer__item} `}
+            onClick={(e) => props?.onChangeLayout(e)}
+          >
+            {/* <ListItemButton sx={{ textAlign: 'center' }}> */}
+            <ListItemText
+              primary={'Get Started'}
+              sx={{
+                '.MuiTypography-root': {
+                  fontSize: '2rem',
+                  fontWeight: '600',
+                },
+              }}
+            />
+          </ListItemButton>
+        </Box>
       </SwipeableDrawer>
       <IconButton
         onClick={() => setOpenDrawer(!openDrawer)}

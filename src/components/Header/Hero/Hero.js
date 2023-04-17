@@ -43,32 +43,43 @@ const Hero = (props) => {
 
   return (
     <Fragment>
-      <Grid
+      <Box
         className={classes.hero}
+        component='header'
         container
-        direction={mobile ? 'column' : 'row'}
-        alignItems="center"
-        justifyContent={mobile ? 'flex-start' : 'center'}
+        // direction={mobile ? 'column' : 'row'}
+        // alignItems="center"
+        // justifyContent={mobile ? 'flex-start' : 'center'}
         // justifyContent={'space-between'}
         width={mobile ? '100vw' : '100vw'}
         height='100vh'
         rowGap={'2rem'}
-        mt={!smallScreen ? '7rem' : 0}
-        pt={mobile ? '3rem' : 0}
+        // mt={!smallScreen ? '7rem' : 0}
+        // pt={mobile ? '3rem' : 0}
+        sx={{
+          position: 'relative'
+        }}
       >
-        {/* <Box
+        <Box
+        className={classes.hero__announcements}
           sx={{
-            width: mobile ? '90%' : '50%',
-            order: mobile ? 1 : 2,
+            width: '100%',
+            position: 'relative',
+            top: '10px',
           }}
         >
-          <img
-            className={classes.hero__image}
-            src={headerImage}
-            alt="illustration of a psychotherapy patient sitting on couch, engaging with therapists sitting to the right of couch"
-            width="100%"
-          />
-        </Box> */}
+          <Typography variant='h2' fontSize='2rem' sx={{
+            fontFamily: `'Darker Grotesque', sans-serif`,
+            flex: 1,
+            textAlign:'center',
+
+            display: 'flex',
+            justifyContent:'center',
+            alignItems: 'center',
+          }}>
+            Now accepting Carefirst BlueCross BlueShield
+          </Typography>
+        </Box>
 
         <Grid
           item
@@ -90,7 +101,7 @@ const Hero = (props) => {
           <Stack
             // direction={mobile ? 'column' : 'row'}
             sx={{
-              width: mobile ? '100%' : '70%',
+              width: mobile ? '100%' : '100%',
               alignItems:mobile ? 'center' : 'start',
             }}
           >
@@ -100,26 +111,29 @@ const Hero = (props) => {
               sx={{
                 width: mobile ? 'auto' : '100%',
                 lineHeight: 1.2,
-                fontSize: mobile ? '5rem' : '12rem',
-                fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+                fontSize: mobile ? '5rem' : '10rem',
+                fontFamily: ' "Raleway", "Helvetica", "Arial", sans-serif',
                 color: '#FA8072',
-                fontWeight: mobile ? 300 : 500,
-                textAlign: 'left',
+                fontWeight: mobile ? 300 : 700,
+                textAlign: 'center',
                 // paddingLeft: '20%'
                 overflow: 'hidden',
                 span: { 
-                  display: 'block',
-                  overflow: 'hidden'
+                  // display: 'block',
+                  // overflow: 'hidden'
+                
                 }, 
-                '.middle': { 
+                '.heading__middle-word': { 
                   color: 'brown',
+                  display: 'flex',
+                  justifyContent: 'center',
                 }
               }}
             >
               <span>
                 Fortitude
               </span> 
-              <span className='middle'>
+              <span className='heading__middle-word'>
                 Wellness
               </span>
               <span>
@@ -127,7 +141,9 @@ const Hero = (props) => {
               </span>
             </Typography>
           </Stack>
-          <Stack
+         
+        </Grid>
+        {/* <Stack
             direction="column"
             rowGap='2rem'
             alignItems={mobile ? 'center': 'flex-end'}
@@ -160,9 +176,8 @@ const Hero = (props) => {
               </ButtonLarge>
             </Stack>
             
-          </Stack>
-        </Grid>
-      </Grid>
+          </Stack> */}
+      </Box>
     </Fragment>
   );
 };

@@ -9,7 +9,8 @@ const themePrimary = createTheme({
   palette: { 
     common: { 
       black: '#252422',
-      white: '#FFFCF2',
+      white: '#FFFFFF',
+      offWhite: '#FFFCF2',
     },
     primary: { 
       main: '#000',
@@ -23,12 +24,14 @@ const themePrimary = createTheme({
    }
   },
   typography: {   
-    fontFamily: ' "Montserrat", "Helvetica", "Arial", sans-serif',
+    // fontFamily: ' "Montserrat", "Helvetica", "Arial", sans-serif',
+    fontFamily: `'Raleway', sans-serif`,
+
     h1: { 
       lineHeight: 1.5,
     }, 
     h2: { 
-      fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+      fontFamily: ' "Raleway", "Helvetica", "Arial", sans-serif',
     }
   },
 });

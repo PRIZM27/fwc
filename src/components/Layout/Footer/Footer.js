@@ -19,7 +19,6 @@ const Footer = (props) => {
         height: '30rem',
         backgroundColor: '#FFFAED',
         padding: '10rem 2rem 2rem 2rem',
-        clipPath: 'polygon(50% 2%, 84% 10%, 100% 20%, 100% 77%, 100% 100%, 0 100%, 0 79%, 0 20%, 16% 10%)',
         // clipPath: 'polygon(50% 0, 80% 4%, 100% 15%, 100% 77%, 100% 100%, 0 100%, 0 79%, 0 15%, 20% 5%)',
 
 
@@ -35,7 +34,6 @@ const Footer = (props) => {
           fontWeight="600"
           color='secondary'
           sx={{
-            fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
 
             '.middle': { 
               color: 'brown',

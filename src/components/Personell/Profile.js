@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+
 import Ribbon from '../Ribbon/Ribbon';
 
 import classes from './_Profile.module.scss';
@@ -52,8 +54,8 @@ const Profile = (props) => {
           }}
           >
           <img
-          data-aos="fade-up" 
-          data-aos-delay="500"
+            data-aos="fade-up" 
+            data-aos-delay="500"
             src={person.image}
             alt={person.altText}
             width="110%"
@@ -97,6 +99,10 @@ const Profile = (props) => {
             fontWeight="400"
             lineHeight={1.8}
             width={largeScreen ? '100%' : '80%'}
+            sx={{
+              columnCount: 3,
+              columnWidth: '25rem'
+            }}
           >
             {person.bio}
           </Typography>
@@ -127,8 +133,8 @@ const Profile = (props) => {
                 <FacebookIcon />
               </IconButton>
               <IconButton
-                color="linkedin"
-                aria-label="add an alarm"
+                color="primary"
+                aria-label="linkedin"
                 sx={{
                   '.MuiSvgIcon-root': {
                     fontSize: '4rem',
@@ -145,3 +151,4 @@ const Profile = (props) => {
 };
 
 export default Profile;
+ 

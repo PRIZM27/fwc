@@ -155,7 +155,7 @@ const TopNav = (props) => {
 
   // component rendered for screens larger than 600px
   const NavTop = (
-    <Nav className={classes.nav__top} component={'nav'}>
+    <Nav className={classes.nav__top} component={'nav'} >
       <Tabs
         value={value}
         textColor="secondary"

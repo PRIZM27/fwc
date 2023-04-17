@@ -22,7 +22,7 @@ import FAQCard from '../../../components/Cards/FAQCard/FAQCard';
 
 
 
-import useMediaQ from '../../../custom-hooks/useMediaQ';
+import useMediaQ from '../../../utils/custom-hooks/useMediaQ';
 
 const ContentStack = styled(Stack)(({ theme }) => ({
   direction: 'column',

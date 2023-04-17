@@ -33,15 +33,22 @@ const theme = createTheme({});
 const formReducer = (state, action) => {
   switch (action.type) {
     case 'letters_only_input':
+      
+    if(action.payload.value.length > 20) { 
+      return {
+        ...state,
+        [`${action.payload.name}Invalid`]: true,
+      };
+    }
       const regexNumber = /\d/i;
-      // regex for at least on arbitrary alphabetic character
-      // const regexLetter = /[A-Za-z]/i;
+
+      // regex for at least one arbitrary alphabetic character
       const regexLetter = /^[A-Za-z]+$/i;
+
       // regex evaluates the input
-      const hasNumber = action.payload.value.trim().match(regexNumber); // will be false if no number
+        // Value will be arr. If match, arr will have elements: truthy; else empty: falsy
+      const hasNumber = action.payload.value.trim().match(regexNumber); 
       const hasLetter = action.payload.value.trim().match(regexLetter);
-      // console.log(hasLetter)
-      // const validity = hasLetter && !hasNumber ? true : false;
 
       const invalid = !hasLetter || hasNumber ? true : false;
 
@@ -109,17 +116,10 @@ const Contact = (props) => {
   const [inputTouched, setInputTouched] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
+  const [formattedPronoun, setFormattedPronoun] = useState('');
 
-  // error state of form elements
-  // const [state, dispatchValidate] = useReducer(formReducer, {
-  //   firstNameValid: null,
-  //   lastNameValid: null,
-  //   emailValid: null,
-  //   phoneValid: null,
-  //   pronounValid: null,
-  //   messageValid: null,
-  // });
+  const navigate = useNavigate();
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const [state, dispatchValidate] = useReducer(formReducer, {
     firstNameInvalid: null,
@@ -130,14 +130,24 @@ const Contact = (props) => {
     messageInvalid: null,
   });
 
-  const mobile = useMediaQuery(theme.breakpoints.down('md'));
+  const addBackSlash = (value) => { 
+    // need a list of all current pronouns
+    const pronouns = ['he','him', 'she', 'her', 'they', 'them'];
 
-  const invalidValues = Object.values(state);
-  // console.log(invalidValues);
+    // the value should be run through filter or find
+   setTimeout(() => { 
+    const found = pronouns.find(p => p === value);
+    console.log(found);
+    let pronounWithSlash = found ? found + '/' : '';
+    
+    console.log(pronounWithSlash);
+    // if there is a match after filtering, add / after the value
 
-  // value for error prop
-  // const firstNameValid = inputIsValid && inputTouched;
-  // const lastNameValid = inputIsValid && inputTouched;
+    // setFormattedPronoun(pronounWithSlash);
+    
+   }, 500)
+  }
+
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -351,10 +361,10 @@ const Contact = (props) => {
             // emailjsvariable={'first_name'}
             required
             id="standard-basic"
-            name="first_name"
+            name="firstName"
             label="First Name"
             variant="standard"
-            helperText="Must have at least 1 character. Letters only."
+            helperText="Must have at least 1 letter. 20 character maximum."
             fullWidth={mobile ? true : false}
             // error={state.firstNameValid === false && inputTouched}
             error={state.firstNameInvalid && inputTouched}
@@ -382,11 +392,11 @@ const Contact = (props) => {
             // emailjsvariable={'last_name'}
             required
             id="standard-basic"
-            name="last_name"
+            name="lastName"
             label="Last Name"
             variant="standard"
             // error={state.errorLastName}
-            helperText="Must have at least 1 character. Letters only"
+            helperText="Must have at least 1 letter. 20 character maximum."
             error={state.lastNameInvalid && inputTouched}
             onChange={(e) => {
               setInputTouched(true);
@@ -412,7 +422,7 @@ const Contact = (props) => {
             // emailjsvariable={'user_email'}
             required
             type="email"
-            name="user_email"
+            name="email"
             id="standard-basic"
             label="Email"
             variant="standard"
@@ -440,10 +450,11 @@ const Contact = (props) => {
           />
           <TextField
             required
-            name="user_phone"
+            name="phone"
             id="standard-basic"
             label="Phone"
             variant="standard"
+            type='numeric'
             error={state.phoneInvalid && inputTouched}
             onChange={(e) => {
               setInputTouched(true);
@@ -466,21 +477,25 @@ const Contact = (props) => {
             }}
           />
           <TextField
+            value={formattedPronoun}
             id="standard-basic"
-            name="user_pronoun"
+            name="pronoun"
             label="Preferred Pronouns"
             variant="standard"
             helperText="Must be at least 1 alphabetic character"
             error={state.pronounInvalid && inputTouched}
             onChange={(e) => {
               setInputTouched(true);
+              addBackSlash(e.target.value);
               dispatchValidate({
                 type: 'letters_only_input',
+                
                 payload: e.target,
               });
             }}
             onBlur={(e) => {
               setInputTouched(true);
+              addBackSlash(e.target.value);
               dispatchValidate({
                 type: 'letters_only_input',
                 payload: e.target,
@@ -493,8 +508,10 @@ const Contact = (props) => {
             }}
           />
 
+          {/* Availability checkbox input group */}
          <BasicCheckBoxes direction='row'  />
 
+           {/* Lead source select input (How did you hear about us?) */}
           <BasicSelect sx={{
             '.MuiBox-root': { 
               gridColumn: '1',

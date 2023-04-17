@@ -29,8 +29,12 @@ import Mission from './components/Mission/Mission';
 import Features from './components/Layout/Features/Feature';
 import Services from './components/Layout/Services/Services';
 import ServicesPage from './components/Layout/ServicesPage/ServicesPage';
+
+import NewServicesPage from './components/Layout/ServicesPage/NewServicesPage';
+
 import GettingStarted from './components/Layout/GettingStarted/GettingStarted';
 import Contact from './components/Forms/Contact/Contact';
+import NewForm from './components/Forms/NewForm';
 
 import FAQ from '../src/components/Layout/FAQ/FAQ';
 
@@ -62,17 +66,18 @@ const router = createBrowserRouter([
       },
       { 
         path: 'therapy-services',
-        element: <ServicesPage />
+        element: <NewServicesPage />
       },
       { 
         path: 'help',
         element: <FAQ />
       },
-      { 
-        path: 'contact',
-        element: <Contact />
-      }
+      
     ]
+  },
+  { 
+    path: 'contact',
+    element: <NewForm />
   }
   // { 
   //   path: 'therapy-services',

@@ -101,7 +101,7 @@ export default function ServicesViewCard(props) {
         // data-aos={'fade-up'}
         // data-aos-duration={800}
         sx={{
-          width: smallScreen ? '35rem' : '20%',
+          width: smallScreen ? '35rem' : '23%',
           minWidth: smallScreen ? '35rem' : '28.5rem',
           maxWidth: smallScreen ? '35rem' : '45rem',
           height: smallScreen ? '60rem' : '60rem',
@@ -235,7 +235,7 @@ export default function ServicesViewCard(props) {
               fontSize="1.4rem"
               lineHeight="1.8"
             >
-              {props.service.description}
+              {props.service.details}
             </Typography>
           </CardContent>
           <Button

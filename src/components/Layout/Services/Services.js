@@ -5,7 +5,6 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 
-import { styled } from '@mui/material/styles';
 // Card component
 import ServicesViewCard from '../../Cards/ServicesViewCard';
 import FAQCard from '../../Cards/FAQCard/FAQCard';
@@ -14,90 +13,59 @@ import { FeatureBoxSet } from '../Features/Feature';
 // sass style classes
 import classes from './_Services.module.scss';
 
-import oneOnOneImage from '../../../assets/images/looking-up-final.png';
-import groupTherapyImage from '../../../assets/images/two-women-removebg-preview.png';
-import supervisionImage from '../../../assets/images/supervision.webp';
+// import oneOnOneImage from '../../../assets/images/looking-up-final.png';
+// import groupTherapyImage from '../../../assets/images/two-women-removebg-preview.png';
+// import supervisionImage from '../../../assets/images/supervision.webp';
 
-import PhonelinkIcon from '@mui/icons-material/Phonelink';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
-import { Phone } from '@mui/icons-material';
+import PhonelinkOutlinedIcon from '@mui/icons-material/PhonelinkOutlined';
+import HealthAndSafetyOutlinedIcon from '@mui/icons-material/HealthAndSafetyOutlined';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';// import { Phone } from '@mui/icons-material';
 
-import useMediaQuery from '@mui/material/useMediaQuery';
+
+import useMediaQ from '../../../utils/custom-hooks/useMediaQ';
+
+import {services} from '../../../data/servicesData';
+
 import { createTheme } from '@mui/system';
 
-const theme = createTheme({});
+const theme = createTheme();
+console.log(theme, 'theme object from Services.js')
 
-const services = [
-  {
-    name: 'Individual Therapy',
-    description: `Individual therapy involves one-on-one sessions between a trained therapist and a patient. The goal of individual therapy is to help the patient understand and work through their emotions, thoughts, and behaviors in order to improve their mental health and overall well-being. Individual therapy can be used to treat a wide range of mental health issues, including anxiety, depression, post-traumatic stress disorder (PTSD), and addiction. It can also be used to help individuals cope with life changes and transitions, such as the loss of a loved one, a career change, or a major move.`,
-    price: 180,
-    duration: 53,
-    inPerson: 'true',
-    anotherFeature: 'lorem ipsum',
-    anotherFeature2: 'more lorem ipsum',
-    image: oneOnOneImage,
-  },
-  {
-    name: 'Couples/Family Therapy',
-    description: `Couples/ Family therapy is a type of psychotherapy that involves couples or all members of a nuclear or extended family. Couples therapy is designed to help couples improve their relationship by resolving conflicts and addressing issues such as communication problems, intimacy issues, and financial disagreements.The goal of family therapy is to help family members improve communication, resolve conflicts, and understand each other's perspectives. Therapy sessions are led by a trained therapist and may involve a variety of techniques, such as role-playing and problem-solving exercises. Family therapy can be used to address a wide range of issues, including mental health disorders, relationship problems, and behavioral issues in children. Couples therapy can be used for couples of all types, regardless of whether they are dating, engaged, married, or in a long-term committed relationship.`,
-    price: 200,
-    duration: 60,
-    inPerson: 'true',
-    anotherFeature: 'lorem ipsum',
-    anotherFeature2: 'more lorem ipsum',
-    image: groupTherapyImage,
-  },
-  {
-    name: 'Wellness Coaching',
-    description: `Wellness coaching is a holistic approach to health and wellness that focuses on the individual's unique needs, goals, and experiences. It involves working with a coach to identify areas of concern and create a personalized plan to improve physical, emotional, and mental well-being. A wellness coach provides support, guidance, and accountability to help individuals make lasting lifestyle changes and reach their health and wellness goals. This can include a range of topics such as nutrition, exercise, stress management, and work-life balance. Wellness coaching differs from traditional therapy or medical treatment, as the focus is on prevention and proactive measures for overall well-being rather than addressing specific medical conditions.`,
-    price: 85,
-    duration: 53,
-    inPerson: 'true',
-    anotherFeature: 'lorem ipsum',
-    anotherFeature2: 'more lorem ipsum',
-    image: supervisionImage,
-  },
-
-  {
-    name: 'Supervision',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..`,
-    price: 50,
-    duration: 60,
-    inPerson: 'true',
-    anotherFeature: 'lorem ipsum',
-    anotherFeature2: 'more lorem ipsum',
-    image: supervisionImage,
-  },
-];
 
 const features = [
   {
-    icon: <PhonelinkIcon sx={
+    icon: <PhonelinkOutlinedIcon 
+    className={classes['highlights__svg-icon']}
+    fontSize='8rem'
+    sx={
       { 
-        fontSize: theme.breakpoints.down('md') ? '6rem' : '9rem', 
-        color: '#FFFAED', 
+        color: '#000', 
         display: 'block' 
+        
       }} />,
     feature: 'Remote sessions',
     details: 'Lorem ipsum',
   },
   {
-    icon: <HealthAndSafetyIcon sx={
-      { fontSize: theme.breakpoints.down('md') ? '6rem' : '9rem', 
-        color: '#FFFAED', 
-        display: 'block' 
+    icon: <HealthAndSafetyOutlinedIcon 
+    className={classes['highlights__svg-icon']}
+    fontSize='8rem'
+    sx={
+      { 
+      color: '#000', 
+      display: 'block' 
       }} />,
     feature: 'Carefirst-Blue Cross Blue Shield Provider',
     details: 'Lorem ipsum',
   },
   {
     icon: (
-      <AssignmentTurnedInIcon sx={{ 
-        fontSize: theme.breakpoints.down('md') ? '6rem' : '9rem', 
-        color: '#FFFAED', 
-        display: 'block' 
+      <AssignmentOutlinedIcon 
+      className={classes['highlights__svg-icon']}
+      fontSize='8rem'
+      sx={{ 
+        color: '#000', 
+        display: 'block', 
       }} />
     ),
     feature: 'Lorem ispm procelti nuouti',
@@ -106,6 +74,19 @@ const features = [
 ];
 
 const servicesContent = services.map((service, i) => {
+  return (
+    <ServicesViewCard
+      key={i}
+      title={service.name}
+      price={service.price}
+      service={service}
+      cardOrder={i}
+      
+    />
+  );
+});
+
+const mobileServicesContent = services.slice(0, 4).map((service, i) => {
   return (
     <ServicesViewCard
       key={i}
@@ -135,7 +116,13 @@ const featuresContent = features.map((f, i) => (
     }}
   >
     {f.icon}
-    <Typography variant="h4"  fontSize={theme.breakpoints.down('md') ? '1.6rem' : '3rem'} fontWeight="600" color='#FFFAED' width='70%' textAlign={'center'}>
+    <Typography 
+    variant="h4"  
+    fontSize={theme.breakpoints.down('md') ? '1.6rem' : '3rem'} 
+    fontWeight="600" 
+    color='#000' 
+    width='70%' 
+    textAlign={'center'}>
       {f.feature}
     </Typography>
   </Stack>
@@ -143,7 +130,8 @@ const featuresContent = features.map((f, i) => (
 
 const Services = () => {
 
-  const mobile = useMediaQuery(theme.breakpoints.down('md'));
+  // const mediumScreenAndBelow = useMediaQuery(theme.breakpoints.down('md'));
+  const mediumScreenAndBelow = useMediaQ('down', 'md');
 
   return (
     <Grid
@@ -162,24 +150,28 @@ const Services = () => {
       columnGap={'5%'}
       // rowGap="3rem"
     >
-      <Typography
+      {/* <Typography
         // data-aos="zoom-in"
         textAlign={'center'}
-        variant="h2"
-        fontSize={mobile ? '5rem' : '10rem'}
+        variant="h"
+        fontSize={mediumScreenAndBelow ? '5rem' : '10rem'}
         fontWeight={400}
         width={'100%'}
+        // color='secondary'
         // mb={'3rem'}
         sx={{
           textTransform: 'uppercase',
-          color: '#FFFAED'
+          // color: '#FFFAED'
+          color: '#000',
+          fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
+
         }}
       >
         Services
-      </Typography>
+      </Typography> */}
       <Stack
         width="50%"
-        direction={mobile ? 'column' : 'row'}
+        direction={mediumScreenAndBelow ? 'column' : 'row'}
         justifyContent={'center'}
         columnGap="1.5rem"
       >
@@ -189,13 +181,13 @@ const Services = () => {
       </Stack>
       <Stack 
         direction={'row'}
-        justifyContent='center'
+        justifyContent='space-evenly'
         flexWrap='wrap' 
         width="100%" 
         columnGap="1.5rem"
         // overflow='visible'
       >
-      {servicesContent}
+      {mobileServicesContent}
 
       </Stack>
 

@@ -55,6 +55,7 @@ const GettingStarted = () => {
           textAlign={'center'}
           variant="h2"
           fontSize={smallScreen ? '4rem' : '6rem'}
+          fontWeight='100'
           color='secondary'
           // width={'100%'}
           // ml={'4rem'}
@@ -65,7 +66,7 @@ const GettingStarted = () => {
             overflow: 'hidden'
           }}
         >
-          Getting Started is Easy!
+          Getting Started is Easy
         </Typography>
         <Typography
           variant="body1"
