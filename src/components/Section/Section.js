@@ -8,6 +8,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme } from '@mui/system';
 import styles from './Section.module.scss'
 
+import { useInView } from 'react-intersection-observer';
+
 const theme = createTheme({});
 
 
@@ -25,9 +27,25 @@ const Section = ({content, arrangement}) => {
   const mobile = useMediaQuery(theme.breakpoints.down('md'));
   const largeScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: .65,
+    triggerOnce: true,
+  });
+
+  // const staticImgContainer = `${styles['section__image-container--']}${arrangement}`;
+  const staticImgContainer = styles[`section__image-container--${arrangement}`];
+  const animateImgContainer = styles[`section__image-container--${arrangement}`] + " " + styles.animate__image;
+
+  const staticContentContainerClass = styles[`section__content-container--${arrangement}`];
+  const animateContentContainerClass = styles[`section__content-container--${arrangement}`] + " " +  styles.animate__content;
+
   return (
     <Grid
-      className={styles['section']}
+      ref={ref}
+      // className={styles['section']}
+      className={styles.section}
+
       component='section'
       // className={styles['section__new-mission']}
       // container
@@ -50,7 +68,7 @@ const Section = ({content, arrangement}) => {
       }}
     >
       <Grid
-        className={styles[`section__content-container--${arrangement}`]}
+        className={inView ? animateContentContainerClass : staticContentContainerClass}
         component={Paper}
         item
         container
@@ -91,7 +109,8 @@ const Section = ({content, arrangement}) => {
       </Grid>
 
       <Box
-        className={styles[`section__image-container--${arrangement}`]}
+        className={inView ? animateImgContainer : staticImgContainer }
+        // className={styles[`section__image-container--${arrangement}`]}
         // width={mobile ? '80%' : '50%'}
         m="0 auto"
         sx={{ borderRadius: '.5rem' }}
