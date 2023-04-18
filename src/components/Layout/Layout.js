@@ -5,7 +5,7 @@ import Features from './Features/Feature';
 
 import NewMission from '../Mission/NewMission';
 import ServicesSection from './Services/ServicesSection';
-
+import TestSection from './TestSection';
 import Services from './Services/Services';
 import GettingStarted from './GettingStarted/GettingStarted';
 import Locations from './Location/Locations';
