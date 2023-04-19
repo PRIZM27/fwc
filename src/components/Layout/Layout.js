@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import Box from '@mui/material/Box';
 
 import Hero from '../Header/Hero/Hero';
 import Features from './Features/Feature';
@@ -16,13 +17,23 @@ const Layout = () => {
   return (
    <Fragment >
       <Hero />
-      <Features />
-      <NewMission />
-      <ServicesSection />
-      <Services />
-      <Locations />
-      <GettingStarted /> 
-      <Footer />
+      <Box component={'main'} sx={{
+        '&  > .section:not(:nth-of-type(1))': { 
+          backgroundColor: 'pink',
+        },
+
+      '& >.section' : { 
+        border: '1px solid black',
+      }, 
+      }}>
+        <Features />
+        <NewMission />
+        <ServicesSection />
+        <Services />
+        <Locations />
+        <GettingStarted /> 
+        <Footer />
+      </Box>
    </Fragment>
   );
 }

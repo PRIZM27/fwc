@@ -99,7 +99,7 @@ const Section = ({content, arrangement}) => {
         <Typography
           title={content.title}
           variant="body1"
-          fontSize={mobile ? '1.4rem' : '1.8rem'}
+          fontSize={mobile ? '1.4rem' : '1vw'}
           lineHeight={2}
           width="90%"
           // pl={'4rem'}
