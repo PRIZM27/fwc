@@ -41,7 +41,7 @@ const features = [
 
 const FeatureBox = styled(Paper)(({ theme }) => ({
   width: '90%',
-  height: '55rem',
+  height: 'auto',
   backgroundColor: '#fff',
   borderRadius: '.5rem',
   rowGap: '1rem',
@@ -201,13 +201,18 @@ const Features = () => {
           // flexWrap={mobile ? 'nowrap' : 'wrap'}
           // alignItems="center"
           sx={{
-            width: mobile ? '100%' : '80%',
+            // width: mobile ? '100%' : '80%',
+            // width: mobile ? '100%' : '80%',
+            width: '90%',
             backgroundColor: '#FFEFDB',
             paddingTop: '2rem',
             paddingBottom: '2rem',
             position: 'relative',
-            top: '-150px',
-            left: '10%',
+            // top: '-150px',
+            top: mobile ? 0 : '-150px',
+            // left: '10%',
+            // left: mobile ? 0 : '10%',
+            margin: mobile ? '50px auto' : '0 auto',
           }}
         >
           <Stack
