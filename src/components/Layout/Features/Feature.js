@@ -224,7 +224,7 @@ const Features = () => {
             }}
           >
             <Stack
-              direction='row'
+              direction={smallScreen ? 'column' :'row'}
               sx={{
                 width: '80%',
                 height: '25rem',
@@ -233,6 +233,7 @@ const Features = () => {
                 padding: '2rem',
                 overflow: 'hidden',
                 display: 'flex',
+                justifyContent: smallScreen ? 'space-between' : 'start',
               }}
             >
               <Stack
@@ -247,24 +248,23 @@ const Features = () => {
                   color={themePrimary.palette.common.white}
                   sx={{
                     fontSize: mobile ? '3rem' : '6rem',
-                    fontFamily: ' "Shrikhand", "Helvetica", "Arial", sans-serif',
-                    overflow: 'hidden',
+                    fontFamily: ' "Raleway", "Helvetica", "Arial", sans-serif',
                     span: {
-                      display: 'block',
-                      overflow: 'hidden',
+                      display: mobile ? 'inline-block' : 'block',
                     },
                   }}
                 >
-                  The 
+                  The{' '}
                   <span className={classes.feature__span}>Fortitude</span>{' '}
                   Difference
                 </Typography>
               </Stack>
               <Stack
-                width="40%"
+                width={smallScreen ? '100%' : '40%'}
                 direction="column"
                 justifyContent="space-between"
                 alignItems="center"
+                rowGap={smallScreen ? '15px' : '0'}
               >
                 <Typography variant="body1" color="#fff">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
