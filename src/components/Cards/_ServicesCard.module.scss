@@ -9,7 +9,11 @@
   position: relative;
   // height: 40rem;
   border-radius: .8rem;
-  
+  cursor: pointer;
+  // transition: all 0.4s ease;
+
+
+
 }
 
 
@@ -140,3 +144,34 @@ background: linear-gradient(315deg, hsla(29, 92%, 70%, .4) 0%, hsla(0, 87%, 73%,
   background-color: $color-coral;
 }
 
+.card__levitate { 
+
+  &:hover { 
+  transform: translateY(-30px);
+  animation:.6s ease levitate;
+  }
+}
+
+
+@keyframes levitate { 
+  0% { 
+    transform: translateY(0);
+  }
+
+  100% { 
+    // transform: scale(1.03);
+    transform: translateY(-30px);
+
+  }
+}
+
+@keyframes expand { 
+  0%{ 
+    transform: scale(1)
+  }
+
+
+  100% { 
+    transform: scale(1.05);
+  }
+}

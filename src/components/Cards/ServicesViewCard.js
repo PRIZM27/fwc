@@ -106,7 +106,7 @@ export default function ServicesViewCard(props) {
           maxWidth: smallScreen ? '35rem' : '45rem',
           height: smallScreen ? '60rem' : '60rem',
         }}
-        className={classes.card}
+        className={classes.card + " " + classes.card__levitate}
         overflow={'hidden'}
       >
         <Stack
