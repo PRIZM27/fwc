@@ -118,7 +118,7 @@ const featuresContent = features.map((f, i) => (
     {f.icon}
     <Typography 
     variant="h4"  
-    fontSize={theme.breakpoints.down('md') ? '1.6rem' : '3rem'} 
+    fontSize={theme.breakpoints.down('md') ? '1.2rem' : '3rem'} 
     fontWeight="600" 
     color='#000' 
     width='70%' 
@@ -131,7 +131,7 @@ const featuresContent = features.map((f, i) => (
 const Services = () => {
 
   // const mediumScreenAndBelow = useMediaQuery(theme.breakpoints.down('md'));
-  const mediumScreenAndBelow = useMediaQ('down', 'md');
+  const mobile = useMediaQ('down', 'md');
 
   return (
     <Grid
@@ -170,8 +170,9 @@ const Services = () => {
         Services
       </Typography> */}
       <Stack
-        width="50%"
-        direction={mediumScreenAndBelow ? 'column' : 'row'}
+        width={mobile ? '90%' : '50%'}
+        // direction={mediumScreenAndBelow ? 'column' : 'row'}
+        direction='row'
         justifyContent={'center'}
         columnGap="1.5rem"
       >
