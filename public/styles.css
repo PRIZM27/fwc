@@ -12,12 +12,8 @@ html {
 }
 
 body {
-  margin: 7rem 0 0 0;
-}
-@media screen and (max-width: 600px) {
-  body {
-    margin-top: 7rem;
-  }
+  display: grid;
+  grid-auto-flow: row;
 }
 
 /*# sourceMappingURL=styles.css.map */

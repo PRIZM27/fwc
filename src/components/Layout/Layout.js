@@ -17,15 +17,7 @@ const Layout = () => {
   return (
    <Fragment >
       <Hero />
-      <Box component={'main'} sx={{
-        '&  > .section:not(:nth-of-type(1))': { 
-          backgroundColor: 'pink',
-        },
-
-      '& >.section' : { 
-        border: '1px solid black',
-      }, 
-      }}>
+      <Box component={'main'}>
         <Features />
         <NewMission />
         <ServicesSection />

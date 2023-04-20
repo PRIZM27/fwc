@@ -6,6 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -33,7 +34,7 @@ const Nav = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   padding: '1rem',
   backgroundColor: '#FFFCF9;',
-  position: 'fixed',
+  position: 'sticky',
   top: 0,
   zIndex: 2000,
 }));
@@ -125,7 +126,12 @@ const TopNav = (props) => {
 
   const NavTabs = links.map((link, index) => {
     return (
-      <Tab
+      <Box sx={{
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <Tab
+        className={classes.nav__tab}
         key={link.label}
         component={Link}
         to={link.href}
@@ -148,7 +154,10 @@ const TopNav = (props) => {
             fontSize: '1.2rem',
           },
         }}
-      />
+        />
+      {link.mouseOver ? <ExpandMoreIcon /> : ''}
+      </Box>
+      
     );
   });
 
@@ -163,6 +172,7 @@ const TopNav = (props) => {
         onChange={handleChange}
         aria-label="navigation links group"
         sx={{
+          gridRow: '1',
           width: '60%',
           '.MuiTabs-flexContainer': {
             justifyContent: 'space-between',
